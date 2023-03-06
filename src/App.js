@@ -24,7 +24,7 @@ import CustomerDashBoard from "./Components/Customer/CustomerDashBoard";
 import { MenuPage } from "./Components/Customer/MenuPage";
 
 //hi 
-//hii by Akshay
+//hii by 
 function App() {
   return (
     <>
