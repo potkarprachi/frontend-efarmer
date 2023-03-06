@@ -88,8 +88,8 @@ function Signup() {
         adhar: formValues.adhar,
         pincode: formValues.pincode,
         districts: {
-          districtId:formValues.district.districtId,
-          district:formValues.district.district
+          districtId:formValues.districts.districtId,
+          district:formValues.districts.district
         },
         city: formValues.city,
         role: formValues.role,
