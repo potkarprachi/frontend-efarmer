@@ -47,3 +47,8 @@ export function getApprovedList()
 {
     return axios.get(`${BASE_URL}/menuPage`);
 }
+
+export function getAllDistrict()
+{
+    return axios.get(`${BASE_URL}/getDistrict`);
+}

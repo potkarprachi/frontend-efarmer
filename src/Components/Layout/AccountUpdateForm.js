@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import {getAccDetails, insert, updateAccDetails} from "../../Service/ListApiService";
+import {getAccDetails, getAllDistrict, updateAccDetails} from "../../Service/ListApiService";
 
 import "../MainPage/signup.css";
 
@@ -21,6 +21,14 @@ function AccountUpdateForm() {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [roleError, setRoleError] = useState("");
+  let [districtList,setDistrictList]=useState([]);
+
+  async function fetchDistrict()
+  {
+    var response=await getAllDistrict();
+    console.log(response.data);
+    setDistrictList(response.data);
+  }
 
     async function getAccountDetails()
     {
@@ -30,6 +38,32 @@ function AccountUpdateForm() {
     setFormValues(obj);
     
     }
+
+    
+  const handleChangeDistrict = (e) => {
+    let obj;
+    for(var index in districtList)
+    {
+      console.log(index);
+      console.log("inside for");
+      console.log("item id : " +index.districtId);
+      console.log("onlye e : " +e);
+      console.log("e.tarhet : "+e.target.value);
+      if(districtList[index].districtId==e.target.value)
+      {
+        obj={
+          districtId:e.target.value,
+          district:districtList[index].district
+        }
+        console.log("inside if");
+        console.log(obj);
+      }
+      
+    }
+    console.log(obj);
+    setFormValues({ ...formValues, districts: obj });
+  };
+
     const handleChange = (e) => {
       setFormValues({ ...formValues, [e.target.name]:e.target.value });
     };
@@ -53,7 +87,10 @@ function AccountUpdateForm() {
                           phone:formValues.phone,
                           adhar:formValues.adhar,
                           pincode:formValues.pincode,
-                          district:formValues.district,
+                          districts: {
+                            districtId:formValues.districts.districtId,
+                            district:formValues.districts.district
+                          },
                           city:formValues.city,
                           role:formValues.role}
            
@@ -183,19 +220,6 @@ function AccountUpdateForm() {
   {
     setPinCodeError('');
   }
-  //District validation
-  if(formValues.district.trim()=== ''){
-    setDistrictError('District is required')
-  isValid=false;
-  }
-  else if (!/^[a-zA-Z\s]+$/.test(formValues.district)) 
-  {
-  setDistrictError('District can only contain letters');
-  isValid = false;
-  } else 
-  {
-  setDistrictError('');
-  }
   //City validation
   if(formValues.city.trim()=== '')
   {
@@ -224,99 +248,144 @@ function AccountUpdateForm() {
     console.log(isValid); 
   return isValid;
   }
+  useEffect(()=>{
+    fetchDistrict();
+  },[]);
   return (
     <>
       <div className="lg">
-        <h1 className="mt-2">Account Details Update Form</h1>
+        <h1 className="mt-2">Account Update Form</h1>
         <form onSubmit={handleSubmit}>
-        <div>
-          <label for="name text-start">Full Name:</label>
-          <input type="text" 
-          id="name" 
-          name="fullname" 
-          placeholder="Full Name"
-          value={formValues.fullname}
-          onChange={handleChange} /><br></br>
-          {fullNameError && <span style={{ color: "red" }}>{fullNameError} </span>}
-        </div>
-
-        <div>
-          <label for="phone">Phone Number:</label>
-          <input
-            type="tel"
-            id="phone"
-            name="phone"
-            value={formValues.phone}
-            onChange={handleChange}/>
+          <div>
+            <label for="name text-start">Full Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="fullname"
+              placeholder="Full Name"
+              value={formValues.fullname}
+              onChange={handleChange}
+            />
+            <br></br>
+            {fullNameError && (
+              <span style={{ color: "red" }}>{fullNameError} </span>
+            )}
+          </div>
+          <div>
+            <label for="phone">Phone Number:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formValues.phone}
+              onChange={handleChange}
+            />
             {phoneError && <span style={{ color: "red" }}>{phoneError} </span>}
-        </div>
-
-        <div>
-          <label for="adhar">Aadhar Card Number:</label>
-          <input
-            type="text"
-            id="adhar"
-            name="adhar"
-            value={formValues.adhar}
-            onChange={handleChange}/>
+          </div>
+          <div>
+            <label for="adhar">Aadhar Card Number:</label>
+            <input
+              type="text"
+              id="adhar"
+              name="adhar"
+              value={formValues.adhar}
+              onChange={handleChange}
+            />
             {adharError && <span style={{ color: "red" }}>{adharError} </span>}
-        </div>
-
-        <div>
-          <label for="pincode">Pin Code:</label>
-          <input
-            type="text"
-            id="pincode"
-            name="pincode"
-            value={formValues.pincode}
-            onChange={handleChange}/>
-            {pinCodeError && <span style={{ color: "red" }}>{pinCodeError} </span>}
-        </div>
-
-        <div>
-          <label for="district">District:</label>
-          <input type="text" 
+          </div>
+          <div>
+            <label for="pincode">Pin Code:</label>
+            <input
+              type="text"
+              id="pincode"
+              name="pincode"
+              value={formValues.pincode}
+              onChange={handleChange}
+            />
+            {pinCodeError && (
+              <span style={{ color: "red" }}>{pinCodeError} </span>
+            )}
+          </div>
+          <div>
+            <label for="district">District:</label>
+            {/* <input type="text" 
           id="district" 
           name="district" 
           value={formValues.district}
-          onChange={handleChange}/>
-          {districtError && <span style={{ color: "red" }}>{districtError} </span>}
-        </div>
+          onChange={handleChange}/>{districtError && <span style={{ color: "red" }}>{districtError} </span>} */}
+            <select
+              id="district"
+              name="district"
+              value={formValues.district}
+              onChange={handleChangeDistrict}
+              required
+            >
+              {districtList.map((item)=>{
+                return(
+                  <option value={item.districtId}>{item.district}</option>
+                );
+              })
 
-        <div>
-          <label for="city">City:</label>
-          <input type="text" 
-          id="city" 
-          name="city" 
-          value={formValues.city}
-          onChange={handleChange}/><br></br>
-          {cityError && <span style={{ color: "red" }}>{cityError} </span>}
-        </div>
-
-        <div>
-          <label for="password">Password:</label>
-          <input type="password" 
-          id="password" 
-          name="password" 
-          value={formValues.password}
-          onChange={handleChange}/>
-          {passwordError && <span style={{ color: "red" }}>{passwordError} </span>}
-        </div>
-
-        <div>
-          <label for="confirmpassword">Confirm Password:</label>
-          <input
-            type="password"
-            id="confirmpassword"
-            name="confirmpassword"
-            value={formValues.confirmpassword}
-            onChange={handleChange}/>
-            {confirmPasswordError && <span style={{ color: "red" }}>{confirmPasswordError} </span>}
-        </div>
-        <div></div>
-          
+              }
+            </select>
+            <br></br>
+          </div>
+          <div>
+            <label for="city">City:</label>
+            <input
+              type="text"
+              id="city"
+              name="city"
+              value={formValues.city}
+              onChange={handleChange}
+            />
+            <br></br>
+            {cityError && <span style={{ color: "red" }}>{cityError} </span>}
+          </div>
+          <div>
+            <label for="password">Password:</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formValues.password}
+              onChange={handleChange}
+            />
+            {passwordError && (
+              <span style={{ color: "red" }}>{passwordError} </span>
+            )}
+          </div>
+          <div>
+            <label for="confirmpassword">Confirm Password:</label>
+            <input
+              type="password"
+              id="confirmpassword"
+              name="confirmpassword"
+              value={formValues.confirmpassword}
+              onChange={handleChange}
+            />
+            {confirmPasswordError && (
+              <span style={{ color: "red" }}>{confirmPasswordError} </span>
+            )}
+          </div>
+          <div>
+            <label for="role">Select Role:</label>
+            <select
+              id="role"
+              name="role"
+              value={formValues.role}
+              onChange={handleChange}
+              required
+            >
+              <option value=" ">Select</option>
+              <option value="farmer">Farmer</option>
+              <option value="customer">Customer </option>
+            </select>
+            <br></br>
+            {roleError && <span style={{ color: "red" }}>{roleError}</span>}
+          </div>
           <br />
-          <button type="submit">Update</button>
+          <button type="submit">Submit</button>
         </form>
       </div>
     </>

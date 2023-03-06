@@ -60,7 +60,7 @@ export function FarDashboard()
                     </tr>
                     <tr>
                     <th className="table-text-heading">District</th>
-                    <td className="table-text">{accDetails.district}</td>
+                    <td className="table-text">{accDetails.districts && accDetails.districts.district}</td>
                     </tr>
                     <tr>
                     <th className="table-text-heading">City</th>
