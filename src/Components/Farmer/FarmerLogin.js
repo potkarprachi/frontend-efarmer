@@ -20,7 +20,7 @@ function FarmerLogin() {
       console.log("no validate")
       return;
     }
-    else {
+    else { //data
       var response = await userLogin(loginData);
       
       if (response.data.email ===loginData.email && response.data.password===loginData.password) {
