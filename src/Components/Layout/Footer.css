@@ -1,0 +1,35 @@
+body
+{
+    /* position:absolute;
+    left:0;
+    bottom:0;
+    right:0; */
+    margin-top: auto;
+}
+.afooter
+{
+  margin-top:0px !important;
+  width: 100vmax !important;
+}
+
+p {
+    font-size: medium;
+    font-style: oblique;
+    font-weight: 500;
+  }
+  h4 {
+    font-style: oblique;
+    font-weight: 600;
+  }
+  .myStlye
+  {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .List
+  {
+    list-style: none;
+  }
