@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import '../Layout/ContactUs.css';
 
 const ContactUs = () => {
   const [queryDetails, setQueryDetails] = useState({
