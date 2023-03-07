@@ -6,10 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./Components/MainPage/LandingPage";
 import Signup from "./Components/MainPage/Signup";
 import { FarmerCropStatus } from "./Components/Farmer/FarmerCropStatus";
-import CustomerLogin from "./Components/Customer/CustomerLogin";
-import AdminLogin from "./Components/Admin/AdminLogin";
 import { Footer } from "./Components/Layout/Footer";
-import FarmerLogin from "./Components/Farmer/FarmerLogin";
 import { FarDashboard } from "./Components/Farmer/FarDashboard";
 import { FarmerSideNav } from "./Components/Layout/FarmerSideNav";
 import TopNav from "./Components/Layout/TopNav";
@@ -41,10 +38,7 @@ function App() {
             <Route path="/" element={<LandingPage></LandingPage>}></Route>
             <Route path="/transaction" element={<TransactionPage></TransactionPage>}></Route>
             <Route path="/signup" element={<Signup></Signup>}></Route>
-            <Route path="/farmerlogin" element={<FarmerLogin></FarmerLogin>}></Route>
             <Route path="/cropStatusFarmer" element={<FarmerCropStatus></FarmerCropStatus>}></Route>
-            <Route path="/customerlogin" element={<CustomerLogin></CustomerLogin>}></Route>
-            <Route path="/adminlogin" element={<AdminLogin></AdminLogin>}></Route>
             <Route path="/farmerdashboard" element={<FarDashboard></FarDashboard>}></Route>
             <Route path="/farmersidenavbar" element={<FarmerSideNav></FarmerSideNav>}></Route>
             <Route path="/addCrop" element={<AddCrop></AddCrop>}></Route>

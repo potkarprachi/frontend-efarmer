@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../../Service/ListApiService";
-import "../Login.css";
+import './Login.css';
 function Login() {
   
   let [loginData, setLoginData] = useState({
