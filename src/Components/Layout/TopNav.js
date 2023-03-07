@@ -26,11 +26,7 @@ function TopNav() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/aboutus">About Us</Nav.Link>
             <Nav.Link href="/contactus">Contact Us</Nav.Link>
-            <NavDropdown title="Login" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/farmerlogin">Farmer</NavDropdown.Item>
-              <NavDropdown.Item href="/customerlogin">Customer</NavDropdown.Item>
-              <NavDropdown.Item href="/adminlogin">Admin</NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href='/login'>Login</Nav.Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>

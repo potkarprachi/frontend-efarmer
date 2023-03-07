@@ -15,11 +15,6 @@ export const CustomerSideBarData=[
         link: "/"
     },
     {
-        title: "Order",
-        icon: <ShoppingCartIcon/>,
-        link: "/"
-    },
-    {
         title: "Transcations",
         icon: <CurrencyRupeeIcon/>,
         link: "/customertransaction"
