@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../../Service/ListApiService";
-import "../Login.css";
-function FarmerLogin() {
-  const userrole = "farmer";
+import './Login.css';
+function Login() {
+  
   let [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -14,28 +14,39 @@ function FarmerLogin() {
     setLoginData({ ...loginData, [event.target.name]: event.target.value });
   };
   var navigate = useNavigate();
-  var handleSubmit = async (event) => {
+  var handleSubmit = async (event) => 
+  {
     event.preventDefault();
-    if (!validate()) {
+    if (!validate()) 
+    {
       console.log("no validate")
       return;
     }
-    else { //data
+    else { 
       var response = await userLogin(loginData);
       
-      if (response.data.email ===loginData.email && response.data.password===loginData.password) {
+        if (response.data.email ===loginData.email && response.data.password===loginData.password) 
+        {
 
-        sessionStorage.setItem("user", JSON.stringify(response.data.email));
-        sessionStorage.setItem("userId", JSON.stringify(response.data.id));
-        sessionStorage.setItem("role", JSON.stringify("farmer"));
-        navigate('/farmerdashboard');
+                sessionStorage.setItem("user", JSON.stringify(response.data.email));
+                sessionStorage.setItem("userId", JSON.stringify(response.data.id));
+                sessionStorage.setItem("role", JSON.stringify(response.data.role));
+                console.log(response.data.role);
+                    if(response.data.role==="farmer")
+                        {navigate('/farmerdashboard');}
+                    else if (response.data.role=="admin")
+                        {navigate('/admindashboard');}
+                    else
+                        {navigate('/customerdashboard');}
       }
-      else {
+      else 
+      {
         alert("Invalid Credentials");
         navigate('/farmerlogin')
       }
-    }
+    };
   };
+  
   const validate = () => {
     let isValid = true;
     if (loginData.email.trim() === '') {
@@ -97,4 +108,4 @@ function FarmerLogin() {
   );
 }
 
-export default FarmerLogin;
+export default Login;

@@ -4,6 +4,7 @@ import { getAccDetails } from '../../Service/ListApiService';
 import CustomerSideNav from '../Layout/CustomerSideNav';
 
 function CustomerDashBoard() {
+    
     const id=sessionStorage.getItem("userId");
     const[accDetails,setAccDetails]=useState([]);
     var navigate= useNavigate();
@@ -11,14 +12,9 @@ function CustomerDashBoard() {
     async function getAccountDetails(id)
     {
     var response=await getAccDetails(id);
-    if(response.data.role!= "customer")
-        navigate('/customerlogin');
-    else{
-    
     setAccDetails(response.data);
     console.log(response.data);
     console.log(accDetails.fullname);
-}
     
     }
 
@@ -62,7 +58,7 @@ function CustomerDashBoard() {
                     </tr>
                     <tr>
                     <th className="table-text-heading">District</th>
-                    <td className="table-text">{accDetails.district}</td>
+                    <td className="table-text">{accDetails.districts && accDetails.districts.district}</td>
                     </tr>
                     <tr>
                     <th className="table-text-heading">City</th>

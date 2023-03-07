@@ -6,10 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./Components/MainPage/LandingPage";
 import Signup from "./Components/MainPage/Signup";
 import { FarmerCropStatus } from "./Components/Farmer/FarmerCropStatus";
-import CustomerLogin from "./Components/Customer/CustomerLogin";
-import AdminLogin from "./Components/Admin/AdminLogin";
 import { Footer } from "./Components/Layout/Footer";
-import FarmerLogin from "./Components/Farmer/FarmerLogin";
 import { FarDashboard } from "./Components/Farmer/FarDashboard";
 import { FarmerSideNav } from "./Components/Layout/FarmerSideNav";
 import TopNav from "./Components/Layout/TopNav";
@@ -22,10 +19,11 @@ import { AdminCropStatus } from "./Components/Admin/AdminCropStatus";
 import AccountUpdateForm from "./Components/Layout/AccountUpdateForm";
 import CustomerDashBoard from "./Components/Customer/CustomerDashBoard";
 import { MenuPage } from "./Components/Customer/MenuPage";
-// import ContactUs from "./Components/MainPage/ContactUs";
-// import AboutUs from "./Components/MainPage/AboutUs";
+import ContactUs from "./Components/MainPage/ContactUs";
+import AboutUs from "./Components/MainPage/AboutUs";
 import { CustomerTransaction } from "./Components/Customer/CustomerTransaction";
 import { FarmerTransaction } from "./Components/Farmer/FarmerTransaction";
+import Login from "./Components/MainPage/Login";
 
 
 //hi 
@@ -40,10 +38,7 @@ function App() {
             <Route path="/" element={<LandingPage></LandingPage>}></Route>
             <Route path="/transaction" element={<TransactionPage></TransactionPage>}></Route>
             <Route path="/signup" element={<Signup></Signup>}></Route>
-            <Route path="/farmerlogin" element={<FarmerLogin></FarmerLogin>}></Route>
             <Route path="/cropStatusFarmer" element={<FarmerCropStatus></FarmerCropStatus>}></Route>
-            <Route path="/customerlogin" element={<CustomerLogin></CustomerLogin>}></Route>
-            <Route path="/adminlogin" element={<AdminLogin></AdminLogin>}></Route>
             <Route path="/farmerdashboard" element={<FarDashboard></FarDashboard>}></Route>
             <Route path="/farmersidenavbar" element={<FarmerSideNav></FarmerSideNav>}></Route>
             <Route path="/addCrop" element={<AddCrop></AddCrop>}></Route>
@@ -54,10 +49,11 @@ function App() {
             <Route path="/accountupdate" element={<AccountUpdateForm></AccountUpdateForm>}></Route>
             <Route path="/customerdashboard" element={<CustomerDashBoard></CustomerDashBoard>}></Route>
             <Route path="/menupage" element={<MenuPage></MenuPage>}></Route>
-            {/* <Route path="/contactus" element={<ContactUs></ContactUs>}></Route>
-            <Route path="/aboutUs" element={<AboutUs></AboutUs>}></Route> */}
+            <Route path="/contactus" element={<ContactUs></ContactUs>}></Route>
+            <Route path="/aboutUs" element={<AboutUs></AboutUs>}></Route>
             <Route path="/customerTrans" element={<CustomerTransaction></CustomerTransaction>}></Route>
             <Route path="/farmerTrans" element={<FarmerTransaction></FarmerTransaction>}></Route>
+            <Route path="/login" element={<Login></Login>}></Route>
             </Routes>
           <Footer></Footer>
         </BrowserRouter>
