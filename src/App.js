@@ -22,6 +22,8 @@ import { AdminCropStatus } from "./Components/Admin/AdminCropStatus";
 import AccountUpdateForm from "./Components/Layout/AccountUpdateForm";
 import CustomerDashBoard from "./Components/Customer/CustomerDashBoard";
 import { MenuPage } from "./Components/Customer/MenuPage";
+import ContactUs from "./Components/MainPage/ContactUs";
+import AboutUs from "./Components/MainPage/AboutUs";
 
 //hi 
 //hii by 
@@ -49,6 +51,8 @@ function App() {
             <Route path="/accountupdate" element={<AccountUpdateForm></AccountUpdateForm>}></Route>
             <Route path="/customerdashboard" element={<CustomerDashBoard></CustomerDashBoard>}></Route>
             <Route path="/menupage" element={<MenuPage></MenuPage>}></Route>
+            <Route path="/contactus" element={<ContactUs></ContactUs>}></Route>
+            <Route path="/aboutUs" element={<AboutUs></AboutUs>}></Route>
             </Routes>
           <Footer></Footer>
         </BrowserRouter>

@@ -21,9 +21,9 @@ export function FarDashboard()
     
     }
 
-    async function updateDetails()
+    async function updateDetails(id)
     {
-        navigate(`/accountupdate/`);
+        navigate(`/accountupdate/${id}`);
     
     }
     useEffect(() => {

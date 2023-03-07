@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 function TopNav() {
     const[logState, useLogState]=useState(0);
-    
+    const id=sessionStorage.getItem("userId");
   
   return (
     <>
@@ -24,13 +24,12 @@ function TopNav() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="#link">Lastest Updates</Nav.Link>
-
+            <Nav.Link href="/aboutus">About Us</Nav.Link>
+            <Nav.Link href="/contactus">Contact Us</Nav.Link>
             <NavDropdown title="Login" id="basic-nav-dropdown">
               <NavDropdown.Item href="/farmerlogin">Farmer</NavDropdown.Item>
               <NavDropdown.Item href="/customerlogin">Customer</NavDropdown.Item>
               <NavDropdown.Item href="/adminlogin">Admin</NavDropdown.Item>
-              {sessionStorage?<NavDropdown.Item href="/logout">Logout</NavDropdown.Item>:" "}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
