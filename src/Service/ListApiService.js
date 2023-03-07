@@ -60,6 +60,7 @@ export function getTransDetails(id)
 
 export function getTransDetailsFarmer(id)
 {
+    console.log(`${BASE_URL}/getAllTransactionFarmer/${id}`);
     return axios.get(`${BASE_URL}/getAllTransactionFarmer/${id}`)
 }
 export function buyCrop1(item)

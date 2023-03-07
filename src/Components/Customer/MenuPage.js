@@ -5,7 +5,7 @@ import CustomerSideNav from "../Layout/CustomerSideNav";
 
 export function MenuPage() {
   let [listOfCrops, setListOfCrops] = useState([]);
-  var customerId=2;
+  const customerId=sessionStorage.getItem("userId");
   async function getList() {
     var response = await getApprovedList();
     setListOfCrops(response.data);

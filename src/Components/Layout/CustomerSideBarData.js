@@ -12,11 +12,11 @@ export const CustomerSideBarData=[
     {
         title: "List of Crops",
         icon: <ViewListIcon/>,
-        link: "/"
+        link: "/menuPage"
     },
     {
         title: "Transcations",
         icon: <CurrencyRupeeIcon/>,
-        link: "/customertransaction"
+        link: "/customerTrans"
     }
 ]
