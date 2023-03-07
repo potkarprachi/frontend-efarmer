@@ -7,12 +7,13 @@ import "./CropVerification.css";
 export function AdminCropStatus() {
   let [cropList, setCropList] = useState([]);
 
-  let id = sessionStorage.getItem("userId");
+  // let id = sessionStorage.getItem("userId");
 
   async function getCropList() {
     var response = await getAllPendingList();
     setCropList(response.data);
     console.log(response.data);
+    console.log("Recieved Data"+response.data);
   }
 
   async function changeStatus(cropsId,status)

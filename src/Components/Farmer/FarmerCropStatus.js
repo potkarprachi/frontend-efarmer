@@ -12,8 +12,6 @@ export function FarmerCropStatus() {
     var response = await getAllCropList(id);
     setCropList(response.data);
     console.log(response.data);
-    console.log("Comparing Unsold" + response.data[0].status === "Unsold");
-    console.log("Comparing Sold" + response.data[2].status === "Sold");
   }
 
   async function removeCropFromList(cropId1)

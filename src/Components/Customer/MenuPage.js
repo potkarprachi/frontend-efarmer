@@ -1,17 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { getApprovedList } from "../../Service/ListApiService";
+import { buyCrop1, getApprovedList } from "../../Service/ListApiService";
 import "../Customer/MenuPage.css"
 import CustomerSideNav from "../Layout/CustomerSideNav";
 
 export function MenuPage() {
   let [listOfCrops, setListOfCrops] = useState([]);
-
+  var customerId=2;
   async function getList() {
     var response = await getApprovedList();
     setListOfCrops(response.data);
     console.log(response.data);
   }
-
+  async function buyCrop(customerId,item)
+  {
+    item.customerid=customerId;
+    console.log(item);
+    console.log(customerId);
+    var response1=await buyCrop1(item);
+    getList();
+  }
   useEffect(() => {
     getList();
   }, []);
@@ -35,9 +42,15 @@ export function MenuPage() {
                       <p className="card-text text-start">Weight : {item.weight}</p>
                       <p class="card-text text-start">Price : {item.price}</p>
                       <p class="card-text text-start">City : {item.city}</p>
-                      <a href="#" class="btn btn-success">
+                      <button
+                        type="button"
+                        class="btn btn-success"
+                        onClick={() => {
+                            buyCrop(customerId,item);
+                        }}
+                      >
                         Buy
-                      </a>
+                      </button>
                     </div>
                     <div class="card-footer text-muted">
                       Total Price : {item.weight * item.price}

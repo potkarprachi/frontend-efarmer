@@ -52,3 +52,17 @@ export function getAllDistrict()
 {
     return axios.get(`${BASE_URL}/getDistrict`);
 }
+
+export function getTransDetails(id)
+{
+    return axios.get(`${BASE_URL}/getAllTransactionCust/${id}`)
+}
+
+export function getTransDetailsFarmer(id)
+{
+    return axios.get(`${BASE_URL}/getAllTransactionFarmer/${id}`)
+}
+export function buyCrop1(item)
+{
+    return axios.post(`${BASE_URL}/addTransaction`,item);
+}
