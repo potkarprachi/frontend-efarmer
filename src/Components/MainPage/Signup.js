@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 import { getAllDistrict, insert } from "../../Service/ListApiService";
 import image123 from "../MainPage/signup.jpg"
 import "./signup.css";
@@ -14,8 +15,8 @@ function Signup() {
     adhar: "",
     pincode: "",
     districts: {
-          districtId:"",
-          district:""
+      districtId: "",
+      district: "",
     },
     city: "",
     role: " ",
@@ -32,11 +33,10 @@ function Signup() {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [roleError, setRoleError] = useState("");
-  let [districtList,setDistrictList]=useState([]);
-
-  async function fetchDistrict()
-  {
-    var response=await getAllDistrict();
+  let [districtList, setDistrictList] = useState([]);
+  const navigate = useNavigate();
+  async function fetchDistrict() {
+    var response = await getAllDistrict();
     console.log(response.data);
     setDistrictList(response.data);
   }
@@ -45,26 +45,22 @@ function Signup() {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-
   const handleChangeDistrict = (e) => {
     let obj;
-    for(var index in districtList)
-    {
+    for (var index in districtList) {
       console.log(index);
       console.log("inside for");
-      console.log("item id : " +index.districtId);
-      console.log("onlye e : " +e);
-      console.log("e.tarhet : "+e.target.value);
-      if(districtList[index].districtId==e.target.value)
-      {
-        obj={
-          districtId:e.target.value,
-          district:districtList[index].district
-        }
+      console.log("item id : " + index.districtId);
+      console.log("onlye e : " + e);
+      console.log("e.tarhet : " + e.target.value);
+      if (districtList[index].districtId == e.target.value) {
+        obj = {
+          districtId: e.target.value,
+          district: districtList[index].district,
+        };
         console.log("inside if");
         console.log(obj);
       }
-      
     }
     // console.log(obj);
     setFormValues({ ...formValues, districts: obj });
@@ -88,8 +84,8 @@ function Signup() {
         adhar: formValues.adhar,
         pincode: formValues.pincode,
         districts: {
-          districtId:formValues.districts.districtId,
-          district:formValues.districts.district
+          districtId: formValues.districts.districtId,
+          district: formValues.districts.district,
         },
         city: formValues.city,
         role: formValues.role,
@@ -109,13 +105,15 @@ function Signup() {
           confirmpassword: "",
           adhar: "",
           pincode: "",
-          districts:  {
-            districtId:"",
-            district:""
+          districts: {
+            districtId: "",
+            district: "",
           },
           city: "",
           role: "",
         });
+
+        navigate("/Login");
       }
     }
   };
@@ -233,9 +231,9 @@ function Signup() {
     return isValid;
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchDistrict();
-  },[]);
+  }, []);
   return (
     <>
     <div className="row">
@@ -322,13 +320,9 @@ function Signup() {
               onChange={handleChangeDistrict}
               required
             >
-              {districtList.map((item)=>{
-                return(
-                  <option value={item.districtId}>{item.district}</option>
-                );
-              })
-
-              }
+              {districtList.map((item) => {
+                return <option value={item.districtId}>{item.district}</option>;
+              })}
               {/* <option value=" ">Select</option>
               <option value="farmer">Farmer</option>
               <option value="customer">Customer </option> */}

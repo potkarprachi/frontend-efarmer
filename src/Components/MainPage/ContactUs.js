@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ContactUs.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { contact } from "../../Service/ListApiService";
 
 const ContactUs = () => {
   const [queryDetails, setQueryDetails] = useState({
@@ -17,9 +18,15 @@ const ContactUs = () => {
     setQueryDetails({ ...queryDetails, [e.target.name]: e.target.value });
   };
 
+  const postContact = async () => {
+    const resp = await contact(queryDetails);
+    console.log(resp.data);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
+      postContact();
       console.log(queryDetails);
     } else {
       return window.alert("Please Enter a valid query");

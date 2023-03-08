@@ -22,6 +22,21 @@ function Login() {
     } else {
       var response = await userLogin(loginData);
 
+
+                sessionStorage.setItem("user", JSON.stringify(response.data.email));
+                sessionStorage.setItem("userId", JSON.stringify(response.data.id));
+                sessionStorage.setItem("role", JSON.stringify(response.data.role));
+                console.log(response.data.role);
+                    if(response.data.role==="farmer")
+                        {navigate('/farmerdashboard');}
+                    else if (response.data.role =="admin")
+                        {navigate('/admindashboard');}
+                    else
+                        {navigate('/customerdashboard');}
+      }
+      else 
+      {
+
       if (
         response.data.email === loginData.email &&
         response.data.password === loginData.password

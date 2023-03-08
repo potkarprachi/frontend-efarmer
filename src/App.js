@@ -24,6 +24,7 @@ import AboutUs from "./Components/MainPage/AboutUs";
 import { CustomerTransaction } from "./Components/Customer/CustomerTransaction";
 import { FarmerTransaction } from "./Components/Farmer/FarmerTransaction";
 import Login from "./Components/MainPage/Login";
+import AdminContactUs from "./Components/Admin/AdminContactUs";
 
 
 //hi 
@@ -54,6 +55,7 @@ function App() {
             <Route path="/customerTrans" element={<CustomerTransaction></CustomerTransaction>}></Route>
             <Route path="/farmerTrans" element={<FarmerTransaction></FarmerTransaction>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/adminContactUs" element={<AdminContactUs/>}></Route>
             </Routes>
           <Footer></Footer>
         </BrowserRouter>
