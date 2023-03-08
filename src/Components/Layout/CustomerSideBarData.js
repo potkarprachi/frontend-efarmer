@@ -12,7 +12,9 @@ export const CustomerSideBarData=[
     {
         title: "Menu",
         icon: <ViewListIcon/>,
+
         link: "/menupage"
+
     },
     {
         title: "Transcations",
