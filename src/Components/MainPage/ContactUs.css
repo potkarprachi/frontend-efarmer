@@ -24,19 +24,20 @@
     color: black;
   }
   .contactIcons{
-    height: 80px;
-    width: 80px;
+    height: 50px;
+    width: 50px;
     align-self: center;
+    margin-top: 10%;
+   
   }
   .contactHead{
     background-image: url("https://agricoop.nic.in/images/breadcrumb-banner-1.jpg");
     color: black;
   }
+
  
   .queryForm{
     font-weight: 600;
- 
-    
     background-repeat: no-repeat;
     /* background-position-y: 1; */
     /* background-image: url("https://s3.us-west-2.amazonaws.com/optconnectmarketing-uploads/images/Support-Illustration.png") */
@@ -46,6 +47,10 @@
   /*  */
   .labelTextContactUs{
     color: black !important;
+    text-align: left;
+  }
+  .contactInfo{
+    padding-top: 1%;
   }
 /*  */
  
