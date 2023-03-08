@@ -49,3 +49,12 @@ form {
     background-position: center;
     background-size: cover;
   }
+  .login-div
+  {
+    padding: 0% !important;
+    /* background-color: #F0B27A; */
+  }
+  .img-for-login
+  {
+    /* width: fit-content !important; */
+  }

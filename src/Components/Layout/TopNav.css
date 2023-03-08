@@ -9,3 +9,9 @@
     height: 100px;
     width: 100px;
 }
+.nav-text-top
+{
+    font-size: 17px;
+    font-weight: 600;
+    color: black;
+}

@@ -1,4 +1,7 @@
 import "./LandingPage.css";
+import market from "../MainPage/market.png"
+import selling from "../MainPage/selling.png"
+import earning from "../MainPage/earning.png"
 export function LandingPage() {
   return (
     <>
@@ -89,6 +92,11 @@ export function LandingPage() {
           ></span>
           <span className="visually-hidden">Next</span>
         </button>
+      </div>
+      <div className="mt-5 mb-5 container favforlp">
+        <img src={market} alt="farmerselling"  className="img-for-login-lp me-5" width={220} height={220}/> 
+        <img src={selling} alt="farmerselling"  className="img-for-login-lp me-5" width={220} height={220}/> 
+        <img src={earning} alt="farmerselling"  className="img-for-login-lp me-" width={220} height={220}/> 
       </div>
       <div className="mt-5 mb-5 container">
         <div className="embed-responsive embed-responsive-16by9">
