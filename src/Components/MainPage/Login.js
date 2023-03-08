@@ -34,7 +34,7 @@ function Login() {
                 console.log(response.data.role);
                     if(response.data.role==="farmer")
                         {navigate('/farmerdashboard');}
-                    else if (response.data.role=="admin")
+                    else if (response.data.role =="admin")
                         {navigate('/admindashboard');}
                     else
                         {navigate('/customerdashboard');}
