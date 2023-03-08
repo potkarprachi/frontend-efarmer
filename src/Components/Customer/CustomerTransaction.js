@@ -4,7 +4,9 @@ import CustomerSideNav from "../Layout/CustomerSideNav";
 
 export function CustomerTransaction() {
     let [transactions,setTransactions]=useState([]);
-    const id=sessionStorage.getItem("userId");
+
+    var id=sessionStorage.getItem("userId");
+
     async function getTransList(id)
     {
         console.log(id);
@@ -18,11 +20,13 @@ export function CustomerTransaction() {
     },[]);
     return (
       <>
+
       <div className="row">
         <div className="col-lg-2 col-md-2 col-sm-2 sidebar">
           <CustomerSideNav></CustomerSideNav>
         </div>
         <div className="col-lg-10 col-md-10 col-sm-10">
+
         <div classNameName="container-fluid">
           <table className="table table-striped table-bordered table-responsive">
             <thead>

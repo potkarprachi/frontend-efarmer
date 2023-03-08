@@ -10,9 +10,11 @@ export const CustomerSideBarData=[
         link: "/customerdashboard"
     },
     {
-        title: "List of Crops",
+        title: "Menu",
         icon: <ViewListIcon/>,
-        link: "/menuPage"
+
+        link: "/menupage"
+
     },
     {
         title: "Transcations",
