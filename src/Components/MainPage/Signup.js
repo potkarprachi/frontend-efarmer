@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { getAllDistrict, insert } from "../../Service/ListApiService";
-
+import image123 from "../MainPage/signup.jpg"
 import "./signup.css";
 
 function Signup() {
@@ -236,11 +236,17 @@ function Signup() {
   }, []);
   return (
     <>
-      <div className="lg">
-        <h1 className="mt-2">Registration</h1>
+    <div className="row">
+      <div className="col-lg-7">
+
+        <img src={image123} alt="farmerselling"  className="img-for-login" width={900} height={992}/>
+        </div>
+        <div className="col-lg-5">
+      <div>
+        <h1 className="mt-2 text-dark">Registration</h1>
         <form onSubmit={handleSubmit}>
           <div>
-            <label for="name text-start">Full Name:</label>
+            <label for="name text-start" className="text-dark">Full Name:</label>
             <input
               type="text"
               id="name"
@@ -255,7 +261,7 @@ function Signup() {
             )}
           </div>
           <div>
-            <label for="email">Email:</label>
+            <label for="email" className="text-dark">Email:</label>
             <input
               type="email"
               id="email"
@@ -266,7 +272,7 @@ function Signup() {
             {emailError && <span style={{ color: "red" }}>{emailError} </span>}
           </div>
           <div>
-            <label for="phone">Phone Number:</label>
+            <label for="phone" className="text-dark">Phone Number:</label>
             <input
               type="tel"
               id="phone"
@@ -277,7 +283,7 @@ function Signup() {
             {phoneError && <span style={{ color: "red" }}>{phoneError} </span>}
           </div>
           <div>
-            <label for="adhar">Aadhar Card Number:</label>
+            <label for="adhar" className="text-dark">Aadhar Card Number:</label>
             <input
               type="text"
               id="adhar"
@@ -288,7 +294,7 @@ function Signup() {
             {adharError && <span style={{ color: "red" }}>{adharError} </span>}
           </div>
           <div>
-            <label for="pincode">Pin Code:</label>
+            <label for="pincode" className="text-dark">Pin Code:</label>
             <input
               type="text"
               id="pincode"
@@ -301,7 +307,7 @@ function Signup() {
             )}
           </div>
           <div>
-            <label for="district">District:</label>
+            <label for="district" className="text-dark">District:</label>
             {/* <input type="text" 
           id="district" 
           name="district" 
@@ -324,7 +330,7 @@ function Signup() {
             <br></br>
           </div>
           <div>
-            <label for="city">City:</label>
+            <label for="city" className="text-dark">City:</label>
             <input
               type="text"
               id="city"
@@ -336,7 +342,7 @@ function Signup() {
             {cityError && <span style={{ color: "red" }}>{cityError} </span>}
           </div>
           <div>
-            <label for="password">Password:</label>
+            <label for="password" className="text-dark">Password:</label>
             <input
               type="password"
               id="password"
@@ -349,7 +355,7 @@ function Signup() {
             )}
           </div>
           <div>
-            <label for="confirmpassword">Confirm Password:</label>
+            <label for="confirmpassword" className="text-dark">Confirm Password:</label>
             <input
               type="password"
               id="confirmpassword"
@@ -362,7 +368,7 @@ function Signup() {
             )}
           </div>
           <div>
-            <label for="role">Select Role:</label>
+            <label for="role" className="text-dark">Select Role:</label>
             <select
               id="role"
               name="role"
@@ -380,6 +386,8 @@ function Signup() {
           <br />
           <button type="submit">Submit</button>
         </form>
+      </div>
+      </div>
       </div>
     </>
   );

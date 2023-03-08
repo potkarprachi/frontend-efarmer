@@ -8,3 +8,15 @@
     object-fit:fill;
     filter: brightness(0.6);
 }
+.favforlp
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.img-for-login-lp
+{
+    border: 5px black solid;
+    border-radius: 20px;
+    padding: 20px;
+}

@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { getTransDetails, getTransDetailsFarmer } from "../../Service/ListApiService";
 import { FarmerSideNav } from "../Layout/FarmerSideNav";
 
+import './Transcationpage.css';
+
+
 export function FarmerTransaction() {
     let [transactions,setTransactions]=useState([]);
     const id=sessionStorage.getItem("userId");
@@ -18,12 +21,14 @@ export function FarmerTransaction() {
     },[]);
     return (
       <>
-      <div className="row">
-        <div className="col-lg-2 col-md-2 col-sm-2 sidebar">
-          <FarmerSideNav></FarmerSideNav>
-        </div>
-        <div className="col-lg-10 col-md-10 col-sm-10">
-        <div >
+
+      <div className="row ">
+            <div className="col-lg-2 sidebar">
+               <FarmerSideNav></FarmerSideNav>
+            </div>
+            <div className="col-lg-10">
+        <div className="" >
+
           <table className="table table-striped table-bordered table-responsive">
             <thead>
               <tr>
@@ -40,6 +45,7 @@ export function FarmerTransaction() {
                     return(
                         <tr>
                             <td>{item.transactionId}</td>
+
                             <td>{item.customerid}</td>
                             <td>{item.cropID}</td>
                             <td>{item.weight}</td>
