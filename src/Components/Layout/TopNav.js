@@ -23,10 +23,10 @@ function TopNav() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/aboutus">About Us</Nav.Link>
-            <Nav.Link href="/contactus">Contact Us</Nav.Link>
-            <Nav.Link href='/login'>Login</Nav.Link> 
+            <Nav.Link href="/" className="nav-text-top">Home</Nav.Link>
+            <Nav.Link href="/aboutus" className="nav-text-top">About Us</Nav.Link>
+            <Nav.Link href="/contactus" className="nav-text-top">Contact Us</Nav.Link>
+            <Nav.Link href='/login' className="nav-text-top">Login</Nav.Link> 
           </Nav>
         </Navbar.Collapse>
       </Container>

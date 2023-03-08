@@ -19,5 +19,5 @@ h1{
 }
 .addcropcss
 {
-    max-height: fit-content !important;
+    min-height:max-content !important;
 }
