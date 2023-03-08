@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./ContactUs.css";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { contact } from "../../Service/ListApiService";
 
 const ContactUs = () => {
   const [queryDetails, setQueryDetails] = useState({
@@ -18,15 +17,9 @@ const ContactUs = () => {
     setQueryDetails({ ...queryDetails, [e.target.name]: e.target.value });
   };
 
-  const postContact = async () => {
-    const resp = await contact(queryDetails);
-    console.log(resp.data);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      postContact();
       console.log(queryDetails);
     } else {
       return window.alert("Please Enter a valid query");
@@ -48,8 +41,8 @@ const ContactUs = () => {
               Feel Free To Reach Us For Any Query
             </div>
             <div className="col-7  row">
-              <h2>You Can Reach Us Via</h2>
-              <div className="col-6">
+              <h2 className="contactInfo">You Can Reach Us Via</h2>
+              <div className="col-6 contactUsCard">
                 <Card style={{ width: "18rem" }}>
                   <img
                     className="contactIcons"
@@ -64,7 +57,7 @@ const ContactUs = () => {
                   </Card.Body>
                 </Card>
               </div>
-              <div className="col-6">
+              <div className="col-6 contactUsCard">
                 <Card style={{ width: "18rem" }}>
                   <img
                     className="contactIcons"
@@ -80,7 +73,7 @@ const ContactUs = () => {
                   </Card.Body>
                 </Card>
               </div>
-              <div className="col-6">
+              <div className="col-6 contactUsCard">
                 <Card style={{ width: "18rem" }}>
                   <img
                     className="contactIcons"
@@ -96,7 +89,7 @@ const ContactUs = () => {
                   </Card.Body>
                 </Card>
               </div>
-              <div className="col-6">
+              <div className="col-6 contactUsCard">
                 <Card style={{ width: "18rem" }}>
                   <img
                     className="contactIcons"
@@ -123,10 +116,11 @@ const ContactUs = () => {
                 onSubmit={handleSubmit}
               >
                 <h4 className="conactustitle">Please Write To Us</h4>
-                <label className="labelTextContactUs" for="fullName">
-                  Full Name
-                </label>
+
                 <div>
+                  <label className="labelTextContactUs" for="fullName">
+                    Full Name
+                  </label>
                   <input
                     className="userInput"
                     type="text"

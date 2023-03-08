@@ -5,22 +5,23 @@ import Card from "react-bootstrap/Card";
 const AboutUs = () => {
   return (
     <>
-      <div className="container ">
+      <div className="container aboutUsContainer">
         <div className="row">
           <div className="aboutUsHeader">
-            <h2 className="aboutUsHeader">About Us</h2>
+            <h3 className="aboutUsHeader">About Us</h3>
           </div>
-          <div className="col-4">
-            <div className="aboutUsImage">
+          <div className="col-4 aboutUsImgDiv">
+            {/* <div className="aboutUsImage">
               <img src="https://thumbs.dreamstime.com/b/indian-rural-farmer-using-laptop-indian-rural-farmer-using-laptop-149929931.jpg" />
-            </div>
+            </div> */}
           </div>
-          
           <div className="col-8 aboutUsBody">
             <Card>
-              {/* <Card.Header className="aboutUsHeader">About Us</Card.Header> */}
+              <Card.Header className="aboutUsCardHeader">
+                E-Green Farm
+              </Card.Header>
               <Card.Body className="cardBody">
-                <Card.Title>E-Green Farm</Card.Title>
+                {/* <Card.Title>E-Green Farm</Card.Title> */}
                 <Card.Text className="cardtext">
                   <p>
                     {" "}
