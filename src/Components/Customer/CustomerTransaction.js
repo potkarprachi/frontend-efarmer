@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { getTransDetails } from "../../Service/ListApiService";
+import CustomerSideNav from "../Layout/CustomerSideNav";
 
 export function CustomerTransaction() {
     let [transactions,setTransactions]=useState([]);
-    var id=2;
+    var id=sessionStorage.getItem("userId");
     async function getTransList(id)
     {
         console.log(id);
@@ -17,6 +18,11 @@ export function CustomerTransaction() {
     },[]);
     return (
       <>
+       <div className="row ">
+            <div className="col-lg-2 sidebar">
+               <CustomerSideNav></CustomerSideNav>
+            </div>
+            <div className="col-lg-10">
         <div classNameName="container-fluid">
           <table className="table table-striped table-bordered table-responsive">
             <thead>
@@ -44,6 +50,8 @@ export function CustomerTransaction() {
                 })}
             </tbody>
           </table>
+        </div>
+        </div>
         </div>
       </>
     );

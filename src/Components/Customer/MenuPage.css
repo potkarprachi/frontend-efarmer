@@ -2,9 +2,15 @@
 {
     width:100%;
     min-height:100vh !important;
+    max-height:max-content !important;
     background-image:url(../../../public/Corousel1.jpg);
     background-size: cover;
     background-position:center;
     margin: 0% !important   ;
     padding: 0% !important;
 }
+.menu1
+{
+    height: auto !important;
+}
+

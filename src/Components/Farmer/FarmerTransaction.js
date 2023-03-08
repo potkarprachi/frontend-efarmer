@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { getTransDetails, getTransDetailsFarmer } from "../../Service/ListApiService";
+import { FarmerSideNav } from "../Layout/FarmerSideNav";
+import './Transcationpage.css';
 
 export function FarmerTransaction() {
     let [transactions,setTransactions]=useState([]);
-    var id=1;
+    const id=sessionStorage.getItem("userId");
     async function getTransList(id)
     {
         console.log(id);
@@ -17,7 +19,12 @@ export function FarmerTransaction() {
     },[]);
     return (
       <>
-        <div >
+      <div className="row ">
+            <div className="col-lg-2 sidebar">
+               <FarmerSideNav></FarmerSideNav>
+            </div>
+            <div className="col-lg-10">
+        <div className="" >
           <table className="table table-striped table-bordered table-responsive">
             <thead>
               <tr>
@@ -34,7 +41,7 @@ export function FarmerTransaction() {
                     return(
                         <tr>
                             <td>{item.transactionId}</td>
-                            <td>{item.customerId}</td>
+                            <td>{item.customer_id}</td>
                             <td>{item.cropId}</td>
                             <td>{item.weight}</td>
                             <td>{item.date}</td>
@@ -44,6 +51,8 @@ export function FarmerTransaction() {
                 })}
             </tbody>
           </table>
+        </div>
+        </div>
         </div>
       </>
     );

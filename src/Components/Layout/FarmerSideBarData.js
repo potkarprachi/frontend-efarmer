@@ -28,7 +28,7 @@ export const FarmerSideBarData=[
     {
         title: "Transcations",
         icon: <CurrencyRupeeIcon/>,
-        link: "/transaction"
+        link: "/farmerTrans"
     }
 ]
 
