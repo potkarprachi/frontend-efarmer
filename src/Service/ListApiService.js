@@ -60,3 +60,7 @@ export function getTransDetailsFarmer(id) {
 export function buyCrop1(item) {
   return axios.post(`${BASE_URL}/addTransaction`, item);
 }
+export function getAllTransactions()
+{
+  return axios.get(`${BASE_URL}/getAllTransactions1`)
+}
