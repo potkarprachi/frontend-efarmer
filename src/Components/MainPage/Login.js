@@ -26,6 +26,7 @@ function Login() {
         sessionStorage.setItem("user", JSON.stringify(response.data.email));
         sessionStorage.setItem("userId", JSON.stringify(response.data.id));
         sessionStorage.setItem("role", JSON.stringify(response.data.role));
+        sessionStorage.setItem("name", response.data.fullname);
         console.log(response.data.role);
         if (response.data.role === "farmer") {
           navigate("/farmerdashboard");

@@ -9,16 +9,20 @@ import './FarDashBoard.css';
 export function FarDashboard()
 {   
     const id=sessionStorage.getItem("userId");
+    const role=sessionStorage.getItem("role");
     const[accDetails,setAccDetails]=useState([]);
     var navigate= useNavigate();
     
     async function getAccountDetails(id)
     {
-    var response=await getAccDetails(id);
-    setAccDetails(response.data);
-    console.log(response.data);
-    console.log(accDetails.fullname);
-    
+    if(id===" " && role!="farmer")
+        navigate('/login');
+    else
+    {
+        var response=await getAccDetails(id);
+        setAccDetails(response.data);
+        console.log(response.data);
+        console.log(accDetails.fullname);}
     }
 
     async function updateDetails()
