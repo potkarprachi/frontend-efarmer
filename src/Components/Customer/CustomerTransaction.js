@@ -1,40 +1,41 @@
 import { useEffect, useState } from "react";
 import { getTransDetails } from "../../Service/ListApiService";
 import CustomerSideNav from "../Layout/CustomerSideNav";
-
+import '../Customer/CustomerTransactions.css'
 export function CustomerTransaction() {
-    let [transactions,setTransactions]=useState([]);
+  let [transactions, setTransactions] = useState([]);
 
-    var id=sessionStorage.getItem("userId");
+  var id = sessionStorage.getItem("userId");
 
-    async function getTransList(id)
-    {
-        console.log(id);
-        var response= await getTransDetails(id);
-        console.log(response.data);
-        setTransactions(response.data);
-    }
+  async function getTransList(id) {
+    console.log(id);
+    var response = await getTransDetails(id);
+    console.log(response.data);
+    setTransactions(response.data);
+  }
 
-    useEffect(()=>{
-        getTransList(id);
-    },[]);
-    return (
-      <>
-
-      <div className="row">
-        <div className="col-lg-2 col-md-2 col-sm-2 sidebar">
-          <CustomerSideNav></CustomerSideNav>
-        </div>
-        <div className="col-lg-10 col-md-10 col-sm-10">
-
-        <div classNameName="container-fluid">
-          <table className="table table-striped table-bordered table-responsive">
+  useEffect(() => {
+    getTransList(id);
+  }, []);
+  return (
+    <>
+      <div className="row ">
+            <div className="col-lg-2 sidebar">
+               <CustomerSideNav></CustomerSideNav>
+            </div>
+            <div className="col-lg-10 ">
+        <div className="bgp1" >
+          <div>
+            <h1 className="my-3">Transactions History</h1>
+          </div>
+          <table className="table table-bordered table-responsive text-light ms-2 me-5" style={{width:"auto"}}>
             <thead>
               <tr>
                 <th scope="col">Transaction ID</th>
-                <th scope="col">Farmer Id </th>
-                <th scope="col">Crop ID</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Crop</th>
                 <th scope="col">Weight</th>
+                <th scope="col">Amount</th>
                 <th scope="col">Date</th>
                 <th scope="col">Status</th>
               </tr>
@@ -43,12 +44,13 @@ export function CustomerTransaction() {
                 {transactions.map((item)=>{
                     return(
                         <tr>
-                            <td>{item.transactionId}</td>
-                            <td>{item.farmerId}</td>
-                            <td>{item.cropID}</td>
-                            <td>{item.weight}</td>
-                            <td>{item.date}</td>
-                            <td>{item.status}</td>
+                            <td style={{width:"6%"}}>{item.transactionId}</td>
+                            <td style={{width:"12%"}}>{item.farmerNo.fullname}</td>
+                            <td style={{width:"6%"}}>{item.cropStatus.cropName}</td>
+                            <td style={{width:"6%"}}>{item.weight}</td>
+                            <td style={{width:"6%"}}>{item.weight*item.price}</td>
+                            <td style={{width:"12%"}}>{item.date}</td>
+                            <td style={{width:"12%"}}>{item.status}</td>
                         </tr>
                     );
                 })}
@@ -57,7 +59,6 @@ export function CustomerTransaction() {
         </div>
         </div>
         </div>
-      </>
-    );
-  }
-  
+    </>
+  );
+}

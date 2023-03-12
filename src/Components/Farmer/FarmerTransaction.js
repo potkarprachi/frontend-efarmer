@@ -3,7 +3,7 @@ import { getTransDetails, getTransDetailsFarmer } from "../../Service/ListApiSer
 import { FarmerSideNav } from "../Layout/FarmerSideNav";
 import FarmerSideNavBar from "../Layout/FarmerSideNavBar";
 
-import './Transcationpage.css';
+import './FarmerTransactions.css';
 
 
 export function FarmerTransaction() {
@@ -27,31 +27,34 @@ export function FarmerTransaction() {
             <div className="col-lg-2 sidebar">
                <FarmerSideNavBar></FarmerSideNavBar>
             </div>
-            <div className="col-lg-10">
-              <div>
-
-              <table className="table table-striped table-bordered table-responsive">
-              <thead>
-                  <tr>
-                    <th scope="col">Transaction ID</th>
-                    <th scope="col">Customer Id</th>
-                    <th scope="col">Crop ID</th>
-                    <th scope="col">Weight</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Status</th>
-                  </tr>
-              </thead>
+            <div className="col-lg-10 ">
+        <div className="bgp1" >
+          <div>
+            <h1 className="my-3">Transactions History</h1>
+          </div>
+          <table className="table table-bordered table-responsive text-light ms-2 me-5" style={{width:"auto"}}>
+            <thead>
+              <tr>
+                <th scope="col">Transaction ID</th>
+                <th scope="col">Farmer</th>
+                <th scope="col">Crop</th>
+                <th scope="col">Weight</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
             <tbody className="table-group-divider">
                 {transactions.map((item)=>{
                     return(
                         <tr>
-                            <td>{item.transactionId}</td>
-
-                            <td>{item.customerid}</td>
-                            <td>{item.cropID}</td>
-                            <td>{item.weight}</td>
-                            <td>{item.date}</td>
-                            <td>{item.status}</td>
+                            <td style={{width:"6%"}}>{item.transactionId}</td>
+                            <td style={{width:"12%"}}>{item.customerNo.fullname}</td>
+                            <td style={{width:"6%"}}>{item.cropStatus.cropName}</td>
+                            <td style={{width:"6%"}}>{item.weight}</td>
+                            <td style={{width:"6%"}}>{item.weight*item.price}</td>
+                            <td style={{width:"12%"}}>{item.date}</td>
+                            <td style={{width:"12%"}}>{item.status}</td>
                         </tr>
                     );
                 })}
