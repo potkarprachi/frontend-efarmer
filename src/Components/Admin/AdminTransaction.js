@@ -1,65 +1,64 @@
-import React from 'react'
-import AdminSideNav from '../Layout/AdminSideNav'
+import React, { useEffect, useState } from "react";
+import { getAllTransactions } from "../../Service/ListApiService";
+import AdminSideNav from "../Layout/AdminSideNav";
 
 function AdminTransaction() {
+  let [transactions, setTransactions] = useState([]);
+  const id = sessionStorage.getItem("userId");
+  async function getTransList(id) {
+    console.log(id);
+    var response = await getAllTransactions();
+    console.log(response.data);
+    setTransactions(response.data);
+  }
+
+  useEffect(() => {
+    getTransList(id);
+  }, []);
   return (
-    <div className="row bgp1 ">
-    
-    <div className="col-lg-2">
-    <AdminSideNav></AdminSideNav>
+    <>
+      <div className="row ">
+        <div className="col-lg-2 sidebar">
+          <AdminSideNav></AdminSideNav>
+        </div>
+        <div className="col-lg-10 ">
+          <div className="bgp1">
+            <div>
+              <h1 className="my-3">Transactions History</h1>
+            </div>
+            <table className="table table-bordered table-responsive text-light">
+              <thead>
+                <tr>
+                  <th scope="col">Transaction ID</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Farmer</th>
+                  <th scope="col">Crop ID</th>
+                  <th scope="col">Weight</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody className="table-group-divider">
+                {transactions.map((item) => {
+                  return (
+                    <tr>
+                      <td>{item.transactionId}</td>
+                      <td>{item.customerid}</td>
+                      <td>{item.farmerId}</td>
+                      <td>{item.cropID}</td>
+                      <td>{item.weight}</td>
+                      <td>{item.date}</td>
+                      <td>{item.status}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-    
-    <div className="col-lg-10">
-    <div className="page">
-    <div className="container text">
-      <table
-        className="table text table-hover table-bordered table-sm align-middle caption-top table-responsive"
-      >
-        <caption className="text-center fs-1 bold">
-          Transactions History
-        </caption>
-        <thead className="text">
-          <tr className="text">
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Transaction ID</th>
-            <th scope="col">Date</th>
-            <th scope="col">Amount</th>
-            <th scope="col">Status</th>
-          </tr>
-        </thead>
-        <tbody className="text">
-          <tr>
-            <th scope="row">1</th>
-            <td>ABC</td>
-            <td>123456789</td>
-            <td>23/02/2023</td>
-            <td>7359.10</td>
-            <td>Success</td>
-          </tr>
-          <tr >
-            <th scope="row">2</th>
-            <td>ABC1</td>
-            <td>123AV6789</td>
-            <td>23/02/2023</td>
-            <td>710</td>
-            <td>Success</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>AB2C</td>
-            <td>1234567FT9</td>
-            <td>23/02/2023</td>
-            <td>96350</td>
-            <td>Success</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    </div>
-    </div>
-  </div>
-  )
+    </>
+  );
 }
 
-export default AdminTransaction
+export default AdminTransaction;
