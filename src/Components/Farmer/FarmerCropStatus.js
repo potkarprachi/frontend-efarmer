@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cancelCropSelling, getAllCropList } from "../../Service/ListApiService";
 import { FarmerSideNav } from "../Layout/FarmerSideNav";
+import FarmerSideNavBar from "../Layout/FarmerSideNavBar";
 
 import "./FarmerCropStatus.css";
 export function FarmerCropStatus() {
@@ -26,12 +27,12 @@ export function FarmerCropStatus() {
   }, []);
   return (
     <>
-      <div className="row">
+      <div className="row bgp1">
         <div className="col-lg-2 col-md-2 col-sm-2 sidebar">
-          <FarmerSideNav></FarmerSideNav>
+          <FarmerSideNavBar></FarmerSideNavBar>
         </div>
         <div className="col-lg-10 col-md-10 col-sm-10">
-          <div className="bgp1">
+          <div>
             <div className="container">
               <table className="table table-bordered mt-5 align-middle caption-top table-responsive">
                 <caption className="text-center fs-1 bold text-white">

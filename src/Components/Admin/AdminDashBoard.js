@@ -20,12 +20,12 @@ function AdminDashBoard() {
         getAccountDetails(id);
       },[]) //hi
     return(
-    <div className="row ">
+    <div className="row  bgp1 ">
             <div className="col-lg-2 sidebar">
                <AdminSideNav></AdminSideNav>
             </div>
             <div className="col-lg-10">
-            <div className="page bgp1">
+            <div className="page">
             <div className="container">
                 <br></br>
             <h3>Welcome,{accDetails.fullname}</h3>

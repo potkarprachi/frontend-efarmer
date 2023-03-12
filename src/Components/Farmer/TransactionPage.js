@@ -1,5 +1,6 @@
 import { FarmerSideBarData } from "../Layout/FarmerSideBarData";
 import { FarmerSideNav } from "../Layout/FarmerSideNav";
+import FarmerSideNavBar from "../Layout/FarmerSideNavBar";
 
 import './Transcationpage.css';
 
@@ -7,14 +8,14 @@ export function TransactionPage()
 {
     return(
         
-  <div className="row">
+  <div className="row bgp1">
     
     <div className="col-lg-2">
-    <FarmerSideNav></FarmerSideNav>
+    <FarmerSideNavBar></FarmerSideNavBar>
       </div>
     
     <div className="col-lg-10">
-    <div className="bgp1 page">
+    <div className="page">
     <div className="container text">
       <table
         className="table text table-hover table-bordered table-sm align-middle caption-top table-responsive"
