@@ -19,16 +19,16 @@ export function CustomerTransaction() {
   }, []);
   return (
     <>
-      <div className="row ">
+      <div className="row bgp1">
             <div className="col-lg-2 sidebar">
                <CustomerSideNav></CustomerSideNav>
             </div>
             <div className="col-lg-10 ">
-        <div className="bgp1" >
+        <div className="" >
           <div>
             <h1 className="my-3">Transactions History</h1>
           </div>
-          <table className="table table-bordered table-responsive text-light ms-2 me-5" style={{width:"auto"}}>
+          <table className="table table-bordered table-responsive text-light ms-5 me-5" style={{width:"auto"}}>
             <thead>
               <tr>
                 <th scope="col">Transaction ID</th>

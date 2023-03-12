@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { addCrop } from "../../Service/ListApiService";
 import { FarmerSideNav } from "../Layout/FarmerSideNav";
 import FarmerSideNavBar from "../Layout/FarmerSideNavBar";
-
+import SideNavBar from '../Layout/FarmerSideNavBar';
 import "./AddCrop.css";
 
 export function AddCrop() {
@@ -77,13 +77,13 @@ export function AddCrop() {
 
   return (
     <>
-      <div className="addcropcss">
+      <div className="addcropcss bgp1">
         <div className="row">
           <div className="col-lg-2 sidebar">
-            <FarmerSideNav></FarmerSideNav>
+          <SideNavBar></SideNavBar>
           </div>
           <div className="col-lg-10">
-            <div className="bgp1">
+            <div className="">
               <div classNameName="hg2">
                 <div>
                   <h1 className="text-light fs-1 mt-5">
