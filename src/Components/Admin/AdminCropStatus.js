@@ -58,7 +58,7 @@ export function AdminCropStatus() {
                     return (
                       <tr>
                         <th scope="row">{item.cropID}</th>
-                        <td>{item.farmerId}</td>
+                        <td>{item.farmerNo.fullname}</td>
                         <td>{item.cropName}</td>
                         <td>{item.weight}</td>
                         <td>{item.price}</td>
