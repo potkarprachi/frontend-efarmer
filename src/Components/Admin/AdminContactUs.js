@@ -18,12 +18,12 @@ function AdminContactUs() {
 
   return (
     <>
-      <div className="row">
+      <div className="row bgp1">
         <div className="col-lg-2 col-md-2 col-sm-2 sidebar">
           <AdminSideNav>Contact Queries</AdminSideNav>
         </div>
-        <div className="col-lg-10 col-md-10 col-sm-10">
-          <div className="bgp1">
+        <div className="col-lg-9 col-md-9 col-sm-9">
+          <div>
             <div className="container">
               <table className="table table-bordered mt-5 align-middle caption-top table-responsive">
                 <caption className="text-center fs-1 bold text-white">

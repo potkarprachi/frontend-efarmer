@@ -19,3 +19,12 @@
 {
     margin-left: 620px !important;
 }
+
+@media screen and (max-width: 500px) {
+    .nav a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+}
+    

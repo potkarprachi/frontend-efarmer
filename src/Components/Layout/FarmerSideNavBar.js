@@ -7,14 +7,13 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from 'cdbreact';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
-import "./SideNavBar.css"
-
-const CustomerSideNav = () => {
+const FarmerSideNavBar = () => {
   var name=sessionStorage.getItem("name");
   return (
-    <div style={{ display: 'flex', height: '100vh' ,overflow: 'scroll initial' }}>
+    <div style={{ display: 'flex', height: '100vh', width:'100%' ,overflow: 'scroll initial' }}>
       <CDBSidebar textColor="#fff" backgroundColor="#333">
         <CDBSidebarHeader icon="user" prefix={<i className="fa fa-bars fa-large" ></i>}>
           <a className="text-decoration-none" style={{ color: 'inherit' }} >{name}</a>
@@ -22,14 +21,17 @@ const CustomerSideNav = () => {
 
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
-            <NavLink exact to="/customerdashboard" activeClassName="activeClicked" >
-              <CDBSidebarMenuItem icon="columns" className="link-side-bar">Dashboard</CDBSidebarMenuItem>
+            <NavLink exact to="/FarmerDashboard" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/menupage" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="list" className="link-side-bar">Menu</CDBSidebarMenuItem>
+            <NavLink exact to="/addCrop" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="plus">Add Crop</CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/customerTrans" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="credit-card" className="link-side-bar">Transcations</CDBSidebarMenuItem>
+            <NavLink exact to="/cropStatusFarmer" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="list">Your Crop</CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/farmerTrans" activeClassName="activeClicked">
+              <CDBSidebarMenuItem icon="credit-card">Transcations</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
@@ -48,4 +50,4 @@ const CustomerSideNav = () => {
   );
 };
 
-export default CustomerSideNav;
+export default FarmerSideNavBar;
