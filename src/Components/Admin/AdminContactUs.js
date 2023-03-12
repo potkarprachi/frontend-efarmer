@@ -1,11 +1,20 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getContactQueries } from "../../Service/ListApiService";
 import AdminSideNav from "../Layout/AdminSideNav";
 
 function AdminContactUs() {
+  
   const [queries, setQueries] = useState([]);
+  var navigate=useNavigate();
+  var id=sessionStorage.getItem("userId");    
 
   const getqueries = async () => {
+    if(id==0)
+    {  
+      navigate('/login');
+    }
+   
     const resp = await getContactQueries();
     setQueries(resp.data);
   };
@@ -18,6 +27,7 @@ function AdminContactUs() {
 
   return (
     <>
+
       <div className="row bgp1">
         <div className="col-lg-2 col-md-2 col-sm-2 sidebar">
           <AdminSideNav>Contact Queries</AdminSideNav>

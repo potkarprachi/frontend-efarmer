@@ -6,7 +6,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LandingPage } from "./Components/MainPage/LandingPage";
 import Signup from "./Components/MainPage/Signup";
 import { FarmerCropStatus } from "./Components/Farmer/FarmerCropStatus";
-import { Footer } from "./Components/Layout/Footer";
 import { FarDashboard } from "./Components/Farmer/FarDashboard";
 import { FarmerSideNav } from "./Components/Layout/FarmerSideNav";
 import TopNav from "./Components/Layout/TopNav";
@@ -25,6 +24,7 @@ import { CustomerTransaction } from "./Components/Customer/CustomerTransaction";
 import { FarmerTransaction } from "./Components/Farmer/FarmerTransaction";
 import Login from "./Components/MainPage/Login";
 import AdminContactUs from "./Components/Admin/AdminContactUs";
+import { Footer } from "./Components/Layout/Footer";
 
 
 
@@ -58,7 +58,7 @@ function App() {
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/adminContactUs" element={<AdminContactUs/>}></Route>
             </Routes>
-          <Footer></Footer>
+            <Footer></Footer>
         </BrowserRouter>
       </div>
     </>
