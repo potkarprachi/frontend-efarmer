@@ -61,12 +61,12 @@ export function FarmerCropStatus() {
                         <td>{item.weight * item.price}</td>
                         <td>{item.status}</td>
                         {
-                        item.customerid === 0 ? (
+                        item.customerNo === null ? (
                           <td>Unsold</td>
                         ) : (
                           <td>Sold</td>
                         )}
-                        {item.customerid === 0 ? (
+                        {item.customerNo === null ? (
                           <td>
                             <button
                               type="button"
