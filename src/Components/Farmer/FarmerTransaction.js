@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTransDetails, getTransDetailsFarmer } from "../../Service/ListApiService";
 import { FarmerSideNav } from "../Layout/FarmerSideNav";
+import FarmerSideNavBar from "../Layout/FarmerSideNavBar";
 
 import './FarmerTransactions.css';
 
@@ -24,7 +25,7 @@ export function FarmerTransaction() {
 
       <div className="row ">
             <div className="col-lg-2 sidebar">
-               <FarmerSideNav></FarmerSideNav>
+               <FarmerSideNavBar></FarmerSideNavBar>
             </div>
             <div className="col-lg-10 ">
         <div className="bgp1" >
