@@ -3,14 +3,14 @@ import AdminSideNav from '../Layout/AdminSideNav'
 
 function AdminTransaction() {
   return (
-    <div className="row">
+    <div className="row bgp1 ">
     
     <div className="col-lg-2">
     <AdminSideNav></AdminSideNav>
       </div>
     
     <div className="col-lg-10">
-    <div className="bgp1 page">
+    <div className="page">
     <div className="container text">
       <table
         className="table text table-hover table-bordered table-sm align-middle caption-top table-responsive"

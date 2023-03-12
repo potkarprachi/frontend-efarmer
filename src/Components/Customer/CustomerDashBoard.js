@@ -28,12 +28,12 @@ function CustomerDashBoard() {
       },[])
   return (
     
-    <div className="row ">
+    <div className="row  bgp1">
             <div className="col-lg-2 sidebar">
                <CustomerSideNav></CustomerSideNav>
             </div>
             <div className="col-lg-10">
-            <div className="page bgp1">
+            <div className="page">
             <div className="container">
                 <br></br>
             <h3>Welcome,{accDetails.fullname}</h3>

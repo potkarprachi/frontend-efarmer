@@ -10,6 +10,7 @@ body
 {
   margin-top:0px !important;
   width: 100vmax !important;
+  max-height: max-content !important;
 }
 
 p {

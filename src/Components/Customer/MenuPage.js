@@ -24,13 +24,13 @@ export function MenuPage() {
   }, []);
   return (
     <>
-    <div className="row">
+    <div className="row bg-for-menupage">
     <div className="col-lg-2 sidebar">
                <CustomerSideNav></CustomerSideNav>
             </div>
     <div className="col-lg-10 menu1">
-    <div class="bg-for-menupage">
-        <div class="container my-5 bg-for-menupage">
+    <div>
+        <div>
             <div class="row">
             {listOfCrops.map((item) => {
               return (

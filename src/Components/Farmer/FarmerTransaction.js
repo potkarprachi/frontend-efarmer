@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getTransDetails, getTransDetailsFarmer } from "../../Service/ListApiService";
 import { FarmerSideNav } from "../Layout/FarmerSideNav";
+import FarmerSideNavBar from "../Layout/FarmerSideNavBar";
 
 import './Transcationpage.css';
 
@@ -24,22 +25,22 @@ export function FarmerTransaction() {
 
       <div className="row ">
             <div className="col-lg-2 sidebar">
-               <FarmerSideNav></FarmerSideNav>
+               <FarmerSideNavBar></FarmerSideNavBar>
             </div>
             <div className="col-lg-10">
-        <div className="" >
+              <div>
 
-          <table className="table table-striped table-bordered table-responsive">
-            <thead>
-              <tr>
-                <th scope="col">Transaction ID</th>
-                <th scope="col">Customer Id</th>
-                <th scope="col">Crop ID</th>
-                <th scope="col">Weight</th>
-                <th scope="col">Date</th>
-                <th scope="col">Status</th>
-              </tr>
-            </thead>
+              <table className="table table-striped table-bordered table-responsive">
+              <thead>
+                  <tr>
+                    <th scope="col">Transaction ID</th>
+                    <th scope="col">Customer Id</th>
+                    <th scope="col">Crop ID</th>
+                    <th scope="col">Weight</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                  </tr>
+              </thead>
             <tbody className="table-group-divider">
                 {transactions.map((item)=>{
                     return(
