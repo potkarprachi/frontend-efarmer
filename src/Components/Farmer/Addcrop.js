@@ -80,7 +80,7 @@ export function AddCrop() {
       <div className="addcropcss">
         <div className="row">
           <div className="col-lg-2 sidebar">
-            <FarmerSideNav></FarmerSideNav>
+            <FarmerSideNavBar></FarmerSideNavBar>
           </div>
           <div className="col-lg-10">
             <div className="bgp1">

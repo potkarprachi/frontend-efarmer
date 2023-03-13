@@ -9,6 +9,7 @@ import {
 } from 'cdbreact';
 import { NavLink } from 'react-router-dom';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const FarmerSideNavBar = () => {
   var name=sessionStorage.getItem("name");
@@ -22,27 +23,27 @@ const FarmerSideNavBar = () => {
         <CDBSidebarContent className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/AdminDashboard" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="columns">Dashboard</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="columns" className="link-side-bar">Dashboard</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/adminCropTable" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="check">Crop Approval</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="check" className="link-side-bar">Crop Approval</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/adminContactUs" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="phone">Contact us Queries</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="phone" className="link-side-bar">Contact us Queries</CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/admintransaction" activeClassName="activeClicked">
-              <CDBSidebarMenuItem icon="credit-card">Transcations</CDBSidebarMenuItem>
+              <CDBSidebarMenuItem icon="credit-card" className="link-side-bar">Transcations</CDBSidebarMenuItem>
             </NavLink>
           </CDBSidebarMenu>
         </CDBSidebarContent>
 
         <CDBSidebarFooter style={{ textAlign: 'center' }}>
-          <div
+          <div className="link-side-bar"
             style={{
               padding: '20px 5px',
             }}
-          >
-            Sidebar Footer
+          ><LogoutIcon></LogoutIcon>   
+           Logout
           </div>
         </CDBSidebarFooter>
       </CDBSidebar>
