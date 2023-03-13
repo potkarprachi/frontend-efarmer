@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { userLogin } from "../../Service/ListApiService";
 import "./Login.css";
-import image123 from "../MainPage/farsell.avif"
+import image123 from "../MainPage/farsell.avif";
 function Login() {
   let [loginData, setLoginData] = useState({
     email: "",
@@ -22,7 +22,9 @@ function Login() {
     } else {
       var response = await userLogin(loginData);
       if (
-        response.data.email === loginData.email && response.data.password === loginData.password) {
+        response.data.email === loginData.email &&
+        response.data.password === loginData.password
+      ) {
         sessionStorage.setItem("user", JSON.stringify(response.data.email));
         sessionStorage.setItem("userId", JSON.stringify(response.data.id));
         sessionStorage.setItem("role", JSON.stringify(response.data.role));
@@ -73,8 +75,13 @@ function Login() {
     <div className="container-fluid">
       <div className="row">
         <div className="col-lg-7 login-div">
-
-          <img src={image123} alt="farmerselling"  className="img-for-login" width={900} height={500}/>
+          <img
+            src={image123}
+            alt="farmerselling"
+            className="img-for-login"
+            width={900}
+            height={500}
+          />
         </div>
         <div className="col-lg-5 login-div">
           <div>
@@ -83,7 +90,9 @@ function Login() {
           <div>
             <form action="" method="post" onSubmit={handleSubmit}>
               <div>
-                <label for="username" className="text-dark">Email Id:</label>
+                <label for="username" className="text-dark">
+                  Email Id:
+                </label>
                 <input
                   type="text"
                   id="email"
@@ -97,7 +106,9 @@ function Login() {
                 )}
               </div>
               <div>
-                <label for="password" className="text-dark">Password:</label>
+                <label for="password" className="text-dark">
+                  Password:
+                </label>
                 <input
                   type="password"
                   id="password"
@@ -113,6 +124,8 @@ function Login() {
               <br />
               <button type="submit">Login</button>
               <p>
+                Forgot Password <a href="./forgotPassword"> Forgot Password </a>{" "}
+                <br></br>
                 Don't have an account? <a href="./Signup"> Signup </a>
               </p>
             </form>

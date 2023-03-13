@@ -60,7 +60,10 @@ export function getTransDetailsFarmer(id) {
 export function buyCrop1(item) {
   return axios.post(`${BASE_URL}/addTransaction`, item);
 }
-export function getAllTransactions()
-{
-  return axios.get(`${BASE_URL}/getAllTransactions1`)
+export function getAllTransactions() {
+  return axios.get(`${BASE_URL}/getAllTransactions1`);
+}
+
+export function forgotPassword(email, password) {
+  return axios.post(`${BASE_URL}/forgotPassword/${email}/${password}`);
 }
