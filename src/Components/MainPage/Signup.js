@@ -239,12 +239,12 @@ function Signup() {
     <div className="row">
       <div className="col-lg-7">
 
-        <img src={image123} alt="farmerselling"  className="img-for-login" width={900} height={992}/>
+        <img src={image123} alt="farmerselling"  className="img-fluid" />
         </div>
         <div className="col-lg-5">
       <div>
         <h1 className="mt-2 text-dark">Registration</h1>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="form-d">
           <div>
             <label for="name text-start" className="text-dark">Full Name:</label>
             <input

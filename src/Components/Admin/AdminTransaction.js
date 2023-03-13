@@ -17,12 +17,12 @@ function AdminTransaction() {
   }, []);
   return (
     <>
-      <div className="row ">
+      <div className="row bgp1">
         <div className="col-lg-2 sidebar">
           <AdminSideNav></AdminSideNav>
         </div>
         <div className="col-lg-10 ">
-          <div className="bgp1">
+          <div className="">
             <div>
               <h1 className="my-3">Transactions History</h1>
             </div>
