@@ -2,16 +2,16 @@ import "./Footer.css";
 export function Footer() {
   return (
     <>
-      <footer className="text-bg-dark text-center text-lg-start mt-1 afooter bottom-0">
+      <footer className="text-bg-dark container-fluid padding-of-footer text-center text-lg-start mt-1 afooter bottom-0">
         {/* Grid container */}
-        <div className="container text-center p-4">
+        <div className=" text-center py-4">
           {/*Grid row*/}
-          <div className="row">
+          <div className="row row-of-footer">
             {/*Grid column*/}
-            <div className="col-lg-3 col-md-12 mb-4 mb-md-0">
-              <h4 className="text-uppercase text-start ms-4">Legal</h4>
+            <div className="col-lg-2 col-md-12 mb-4 mb-md-0 div-for-foot-bp">
+              <h4 className="text-uppercase text-center ms-4">Legal</h4>
               <br />
-              <ul className="List text-start">
+              <ul className="List text-center">
                 <li>Accessibility Statement</li>
                 <li>FOIA</li>
                 <li>Information Quality</li>
@@ -21,7 +21,7 @@ export function Footer() {
             </div>
             {/*Grid column*/}
             {/*Grid column*/}
-            <div className="col-lg-3 col-md-12 mb-4 mb-md-0">
+            <div className="col-lg-3 col-md-12 mb-4 mb-md-0 text-center">
               <h4 className="text-uppercase">Stay Connected</h4>
               <br />
               <p>Follow us on social media channels</p>
@@ -49,9 +49,9 @@ export function Footer() {
               </div>
             </div>
             <div className="col-lg-3 col-md-12 mb-4 mb-md-0">
-              <h4 className="text-uppercase text-start ms-4">Resources</h4>
+              <h4 className="text-uppercase text-center ms-4">Resources</h4>
               <br />
-              <ul className="List text-start">
+              <ul className="List text-center">
                 <li>Program Deadlines</li>
                 <li>Tools</li>
                 <li>Disaster Resource Center</li>
@@ -61,15 +61,15 @@ export function Footer() {
             </div>
 
             <div className="col-lg-3 col-md-12 mb-4 mb-md-0">
-              <h4 className="text-uppercase text-start">
+              <h4 className="text-uppercase text-center">
                 subscribe to our updates
               </h4>
               <br />
-              <p className="text-start">
+              <p className="text-center">
                 Stay updated on the latest news and stories from farmers.gov and
                 other USDA topics.
               </p>
-              <div class="mb-3 text-start">
+              <div class="mb-3 text-center">
                 <label for="exampleFormControlInput1" class="form-label">
                   Email address
                 </label>
