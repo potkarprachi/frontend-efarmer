@@ -24,7 +24,7 @@ function TopNav() {
   
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
       <Container>
         <Navbar.Brand href="#home">E-Farming</Navbar.Brand>
         <Navbar.Brand href="#home"><img src={Logo} style={{width:"30px",height:"30px"}}/></Navbar.Brand>

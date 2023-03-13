@@ -3,6 +3,8 @@ import market from "../MainPage/market.png";
 import selling from "../MainPage/selling.png";
 import earning from "../MainPage/earning.png";
 export function LandingPage() {
+
+  sessionStorage.setItem("userId",0);
   return (
     <>
       <div className="container-fluid">
