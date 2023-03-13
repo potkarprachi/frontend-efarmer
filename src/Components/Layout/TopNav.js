@@ -2,7 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import './TopNav.css';
+// import './TopNav.css';
 import Logo from '../Images/Logo.jpg';
 import NavbarBrand from 'react-bootstrap/esm/NavbarBrand';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -24,8 +24,50 @@ function TopNav() {
   
   return (
     <>
+      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" sticky="top">
+      <Container>
+        <Navbar.Brand href="#home">E-Farming</Navbar.Brand>
+        <Navbar.Brand href="#home"><img src={Logo} style={{width:"30px",height:"30px"}}/></Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/" >
+              Home
+            </Nav.Link>
+            <Nav.Link href="/aboutus">
+              About Us
+            </Nav.Link>
+            <Nav.Link href="/contactus" >
+              Contact Us
+            </Nav.Link>
+            {id == 0 ? (
+              <Nav.Link href="/login" >
+                Login
+              </Nav.Link>
+            ) : (
+              <Nav.Link onClick={Logout}>
+                Logout
+              </Nav.Link>
+            )}
+            {id != 0 ? (
+              <Nav.Link >
+                Welcome,{name}
+              </Nav.Link>
+            ) : (
+              " "
+            )}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+    </>
+  );
+}
+export default TopNav;
 
-      <Navbar bg="light" className='nav' expand="lg">
+
+/*
+<Navbar bg="light" className='nav' expand="lg">
       <Container>
         <Navbar.Brand href="#home">
           <img className='nav-img' src={Logo}/>
@@ -44,7 +86,5 @@ function TopNav() {
         </Navbar.Collapse>
       </Container>
   </Navbar> 
-    </>
-  );
-}
-export default TopNav;
+
+*/

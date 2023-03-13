@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { cancelCropSelling, getAllCropList } from "../../Service/ListApiService";
 import { FarmerSideNav } from "../Layout/FarmerSideNav";
+import FarmerSideNavBar from "../Layout/FarmerSideNavBar";
 
 import "./FarmerCropStatus.css";
 export function FarmerCropStatus() {
@@ -26,14 +27,82 @@ export function FarmerCropStatus() {
   }, []);
   return (
     <>
-      <div className="row">
+      <div className="row bgp1">
         <div className="col-lg-2 col-md-2 col-sm-2 sidebar">
-          <FarmerSideNav></FarmerSideNav>
+          <FarmerSideNavBar></FarmerSideNavBar>
         </div>
-        <div className="col-lg-10 col-md-10 col-sm-10">
-          <div className="bgp1">
-            <div className="container">
-              <table className="table table-bordered mt-5 align-middle caption-top table-responsive">
+        <div className="col-lg-10 col-md-10 col-sm-10 mb-5">
+          <div className="text-light">
+            <h1>Crop Status</h1>
+          </div>
+        <table className="table table-bordered table-responsive text-light ms-5 me-5 mt-5" >
+            <thead>
+              <tr>
+              <th scope="col">Order No.</th>
+                    <th scope="col">Crop</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price per Kg</th>
+                    <th scope="col">Total Price</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Sell Status</th>
+                    <th scope="col">Cancel Order</th>
+              </tr>
+            </thead>
+            <tbody className="table-group-divider">
+                {cropList.map((item)=>{
+                    return(
+                        <tr>
+                            <th scope="row">{item.cropID}</th>
+                        <td >{item.cropName}</td>
+                        <td >{item.weight}</td>
+                        <td >{item.price}</td>
+                        <td>{item.weight * item.price}</td>
+                        <td>{item.status}</td>
+                        {
+                        item.customerNo === null ? (
+                          <td>Unsold</td>
+                        ) : (
+                          <td>Sold</td>
+                        )}
+                        {item.customerNo === null ? (
+                          <td>
+                            <button
+                              type="button"
+                              class="btn btn-danger"
+                              onClick={() => {
+                                  removeCropFromList(item.cropID);
+                              }
+                            }
+                            >
+                              Cancel
+                            </button>
+                          </td>
+                        ) : (
+                          <td>
+                            <button
+                              type="button"
+                              class="btn btn-warning"
+                              disabled
+                            >
+                              Cancel
+                            </button>
+                          </td>
+                        )
+                        }
+                        </tr>
+                    );
+                })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </>
+  );
+}
+
+
+/*
+<table className="table table-bordered mt-5 mx-5 margin-right align-middle caption-top table-responsive">
                 <caption className="text-center fs-1 bold text-white">
                   Crops Status
                 </caption>
@@ -54,18 +123,18 @@ export function FarmerCropStatus() {
                     return (
                       <tr>
                         <th scope="row">{item.cropID}</th>
-                        <td>{item.cropName}</td>
-                        <td>{item.weight}</td>
-                        <td>{item.price}</td>
+                        <td >{item.cropName}</td>
+                        <td >{item.weight}</td>
+                        <td >{item.price}</td>
                         <td>{item.weight * item.price}</td>
                         <td>{item.status}</td>
                         {
-                        item.customerid === 0 ? (
+                        item.customerNo === null ? (
                           <td>Unsold</td>
                         ) : (
                           <td>Sold</td>
                         )}
-                        {item.customerid === 0 ? (
+                        {item.customerNo === null ? (
                           <td>
                             <button
                               type="button"
@@ -95,10 +164,5 @@ export function FarmerCropStatus() {
                   })}
                 </tbody>
               </table>
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
+
+*/

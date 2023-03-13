@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getAccDetails } from '../../Service/ListApiService';
 import { FarmerSideNav } from '../Layout/FarmerSideNav';
+import SideNavBar from '../Layout/FarmerSideNavBar';
 import './FarDashBoard.css';
 
 export function FarDashboard()
@@ -34,17 +35,17 @@ export function FarDashboard()
         getAccountDetails(id);
       },[])
     return(
-    <div className="row ">
-            <div className="col-lg-2 sidebar">
-               <FarmerSideNav></FarmerSideNav>
+    <div className="row  bgp1">
+            <div className="col-lg-2 col-sm-2 sidebar">
+               <SideNavBar></SideNavBar>
             </div>
-            <div className="col-lg-10">
-            <div className="page bgp1">
+            <div className="col-lg-10 col-sm-10">
+            <div className="page">
             <div className="container">
                 <br></br>
             <h3>Welcome,{accDetails.fullname}</h3>
             
-            <table class="table tablerr col-md-9">
+            <table class="table tablerr  table-responsive" style={{width:"auto"}}>
                 <tbody>
                     <tr>
                     <th className="table-text-heading col-md-6">Name</th>

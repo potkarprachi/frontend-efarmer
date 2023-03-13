@@ -5,7 +5,7 @@
 }
 .bgp1
 {
-    width:100%;
+    width:auto;
     height:100%;
     background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),url(../../../public/Corousel1.jpg);
     background-size: cover;
@@ -34,7 +34,7 @@ table, tr,td{
 {
     color: white;
 }
-
+/* 
 .tablerr{
     width: 350px !important;
     margin: 50px auto;
@@ -46,7 +46,7 @@ table, tr,td{
     text-align: left;
     
 
-}
+} */
 /* 
 .box
 {

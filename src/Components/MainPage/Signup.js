@@ -241,17 +241,77 @@ function Signup() {
   }, []);
   return (
     <>
-      <div className="row">
-        <div className="col-lg-7">
-          <img
-            src={image123}
-            alt="farmerselling"
-            className="img-for-login"
-            width={900}
-            height={992}
-          />
+
+    <div className="row">
+      <div className="col-lg-7">
+
+        <img src={image123} alt="farmerselling"  className="img-fluid" />
         </div>
         <div className="col-lg-5">
+      <div>
+        <h1 className="mt-2 text-dark">Registration</h1>
+        <form onSubmit={handleSubmit} className="form-d">
+          <div>
+            <label for="name text-start" className="text-dark">Full Name:</label>
+            <input
+              type="text"
+              id="name"
+              name="fullname"
+              placeholder="Full Name"
+              value={formValues.fullname}
+              onChange={handleChange}
+            />
+            <br></br>
+            {fullNameError && (
+              <span style={{ color: "red" }}>{fullNameError} </span>
+            )}
+          </div>
+          <div>
+            <label for="email" className="text-dark">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formValues.email}
+              onChange={handleChange}
+            />
+            {emailError && <span style={{ color: "red" }}>{emailError} </span>}
+          </div>
+          <div>
+            <label for="phone" className="text-dark">Phone Number:</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formValues.phone}
+              onChange={handleChange}
+            />
+            {phoneError && <span style={{ color: "red" }}>{phoneError} </span>}
+          </div>
+          <div>
+            <label for="adhar" className="text-dark">Aadhar Card Number:</label>
+            <input
+              type="text"
+              id="adhar"
+              name="adhar"
+              value={formValues.adhar}
+              onChange={handleChange}
+            />
+            {adharError && <span style={{ color: "red" }}>{adharError} </span>}
+          </div>
+          <div>
+            <label for="pincode" className="text-dark">Pin Code:</label>
+            <input
+              type="text"
+              id="pincode"
+              name="pincode"
+              value={formValues.pincode}
+              onChange={handleChange}
+            />
+            {pinCodeError && (
+              <span style={{ color: "red" }}>{pinCodeError} </span>
+            )}
+          </div>
           <div>
             <h1 className="mt-2 text-dark">Registration</h1>
             <form onSubmit={handleSubmit}>

@@ -7,7 +7,8 @@ export function FarmerSideNav()
 
 {
     return(
-      
+    <>
+
      <div className="Sidebar">
       <ul className="SidebarList">
       {FarmerSideBarData.map((val,key)=>{
@@ -28,6 +29,7 @@ export function FarmerSideNav()
      })}
      </ul>
      </div> 
+     </>
     
     );
 }
