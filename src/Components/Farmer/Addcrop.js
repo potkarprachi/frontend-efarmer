@@ -81,7 +81,8 @@ export function AddCrop() {
         <div className="row">
           <div className="col-lg-2 sidebar">
 
-            <FarmerSideNavBar></FarmerSideNavBar>
+          <FarmerSideNavBar></FarmerSideNavBar>
+
 
           </div>
           <div className="col-lg-10">
@@ -112,12 +113,7 @@ export function AddCrop() {
                         <option value="2">Fruits</option>
                         <option value="3">Staples</option>
                       </select>
-                      {/* <input
-                type="text"
-                className="form-control"
-                id="cropCategory"
-                placeholder="Enter the crop category"
-              /> */}
+                     
                     </div>
                     <div className="mb-3">
                       <label for="cropName" className="form-label text-light">
@@ -194,4 +190,3 @@ export function AddCrop() {
     </>
   );
 }
-
