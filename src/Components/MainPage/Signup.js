@@ -1,9 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+
 import { getAllDistrict, insert } from "../../Service/ListApiService";
-import image123 from "../MainPage/signup.jpg"
+import image123 from "../MainPage/signup.jpg";
 import "./signup.css";
+// 12/03/2023 welcome Email
+import { sendEmail } from "../../Service/Email";
 
 function Signup() {
   const initialValues = {
@@ -112,6 +115,8 @@ function Signup() {
           city: "",
           role: "",
         });
+        // 12/03/2023 welcome email method calling from Email.js File(Service Folder)
+        sendEmail(formData.fullname, formData.email);
 
         navigate("/Login");
       }
@@ -236,6 +241,7 @@ function Signup() {
   }, []);
   return (
     <>
+
     <div className="row">
       <div className="col-lg-7">
 
@@ -307,87 +313,183 @@ function Signup() {
             )}
           </div>
           <div>
-            <label for="district" className="text-dark">District:</label>
-            {/* <input type="text" 
+            <h1 className="mt-2 text-dark">Registration</h1>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <label for="name text-start" className="text-dark">
+                  Full Name:
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="fullname"
+                  placeholder="Full Name"
+                  value={formValues.fullname}
+                  onChange={handleChange}
+                />
+                <br></br>
+                {fullNameError && (
+                  <span style={{ color: "red" }}>{fullNameError} </span>
+                )}
+              </div>
+              <div>
+                <label for="email" className="text-dark">
+                  Email:
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formValues.email}
+                  onChange={handleChange}
+                />
+                {emailError && (
+                  <span style={{ color: "red" }}>{emailError} </span>
+                )}
+              </div>
+              <div>
+                <label for="phone" className="text-dark">
+                  Phone Number:
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formValues.phone}
+                  onChange={handleChange}
+                />
+                {phoneError && (
+                  <span style={{ color: "red" }}>{phoneError} </span>
+                )}
+              </div>
+              <div>
+                <label for="adhar" className="text-dark">
+                  Aadhar Card Number:
+                </label>
+                <input
+                  type="text"
+                  id="adhar"
+                  name="adhar"
+                  value={formValues.adhar}
+                  onChange={handleChange}
+                />
+                {adharError && (
+                  <span style={{ color: "red" }}>{adharError} </span>
+                )}
+              </div>
+              <div>
+                <label for="pincode" className="text-dark">
+                  Pin Code:
+                </label>
+                <input
+                  type="text"
+                  id="pincode"
+                  name="pincode"
+                  value={formValues.pincode}
+                  onChange={handleChange}
+                />
+                {pinCodeError && (
+                  <span style={{ color: "red" }}>{pinCodeError} </span>
+                )}
+              </div>
+              <div>
+                <label for="district" className="text-dark">
+                  District:
+                </label>
+                {/* <input type="text" 
           id="district" 
           name="district" 
           value={formValues.district}
           onChange={handleChange}/>{districtError && <span style={{ color: "red" }}>{districtError} </span>} */}
-            <select
-              id="district"
-              name="district"
-              // value={formValues.district}
-              onChange={handleChangeDistrict}
-              required
-            >
-              {districtList.map((item) => {
-                return <option value={item.districtId}>{item.district}</option>;
-              })}
-              {/* <option value=" ">Select</option>
+                <select
+                  id="district"
+                  name="district"
+                  // value={formValues.district}
+                  onChange={handleChangeDistrict}
+                  required
+                >
+                  {/* 12/03/2023 option to select an item is included */}
+                  <option>select option</option>
+                  {districtList.map((item) => {
+                    return (
+                      <option value={item.districtId}>{item.district}</option>
+                    );
+                  })}
+                  {/* <option value=" ">Select</option>
               <option value="farmer">Farmer</option>
               <option value="customer">Customer </option> */}
-            </select>
-            <br></br>
+                </select>
+                <br></br>
+              </div>
+              <div>
+                <label for="city" className="text-dark">
+                  City:
+                </label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  value={formValues.city}
+                  onChange={handleChange}
+                />
+                <br></br>
+                {cityError && (
+                  <span style={{ color: "red" }}>{cityError} </span>
+                )}
+              </div>
+              <div>
+                <label for="password" className="text-dark">
+                  Password:
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  value={formValues.password}
+                  onChange={handleChange}
+                />
+                {passwordError && (
+                  <span style={{ color: "red" }}>{passwordError} </span>
+                )}
+              </div>
+              <div>
+                <label for="confirmpassword" className="text-dark">
+                  Confirm Password:
+                </label>
+                <input
+                  type="password"
+                  id="confirmpassword"
+                  name="confirmpassword"
+                  value={formValues.confirmpassword}
+                  onChange={handleChange}
+                />
+                {confirmPasswordError && (
+                  <span style={{ color: "red" }}>{confirmPasswordError} </span>
+                )}
+              </div>
+              <div>
+                <label for="role" className="text-dark">
+                  Select Role:
+                </label>
+                <select
+                  id="role"
+                  name="role"
+                  value={formValues.role}
+                  onChange={handleChange}
+                  required
+                >
+                  <option value=" ">Select</option>
+                  <option value="farmer">Farmer</option>
+                  <option value="customer">Customer </option>
+                </select>
+                <br></br>
+                {roleError && <span style={{ color: "red" }}>{roleError}</span>}
+              </div>
+              <br />
+              <button type="submit">Submit</button>
+            </form>
           </div>
-          <div>
-            <label for="city" className="text-dark">City:</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              value={formValues.city}
-              onChange={handleChange}
-            />
-            <br></br>
-            {cityError && <span style={{ color: "red" }}>{cityError} </span>}
-          </div>
-          <div>
-            <label for="password" className="text-dark">Password:</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              value={formValues.password}
-              onChange={handleChange}
-            />
-            {passwordError && (
-              <span style={{ color: "red" }}>{passwordError} </span>
-            )}
-          </div>
-          <div>
-            <label for="confirmpassword" className="text-dark">Confirm Password:</label>
-            <input
-              type="password"
-              id="confirmpassword"
-              name="confirmpassword"
-              value={formValues.confirmpassword}
-              onChange={handleChange}
-            />
-            {confirmPasswordError && (
-              <span style={{ color: "red" }}>{confirmPasswordError} </span>
-            )}
-          </div>
-          <div>
-            <label for="role" className="text-dark">Select Role:</label>
-            <select
-              id="role"
-              name="role"
-              value={formValues.role}
-              onChange={handleChange}
-              required
-            >
-              <option value=" ">Select</option>
-              <option value="farmer">Farmer</option>
-              <option value="customer">Customer </option>
-            </select>
-            <br></br>
-            {roleError && <span style={{ color: "red" }}>{roleError}</span>}
-          </div>
-          <br />
-          <button type="submit">Submit</button>
-        </form>
-      </div>
-      </div>
+        </div>
       </div>
     </>
   );
