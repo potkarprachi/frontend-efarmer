@@ -36,16 +36,16 @@ export function FarDashboard()
       },[])
     return(
     <div className="row  bgp1">
-            <div className="col-lg-2 sidebar">
+            <div className="col-lg-2 col-sm-2 sidebar">
                <SideNavBar></SideNavBar>
             </div>
-            <div className="col-lg-10">
+            <div className="col-lg-10 col-sm-10">
             <div className="page">
             <div className="container">
                 <br></br>
             <h3>Welcome,{accDetails.fullname}</h3>
             
-            <table class="table tablerr col-md-9">
+            <table class="table tablerr  table-responsive" style={{width:"auto"}}>
                 <tbody>
                     <tr>
                     <th className="table-text-heading col-md-6">Name</th>

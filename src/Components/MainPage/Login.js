@@ -72,16 +72,16 @@ function Login() {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-lg-7 login-div">
+        <div className="col-lg-7 col-xl-7 login-div">
 
-          <img src={image123} alt="farmerselling"  className="img-for-login" width={900} height={500}/>
+          <img src={image123} alt="farmerselling"  className="img-for-login img-fluid" width={900} height={500}/>
         </div>
-        <div className="col-lg-5 login-div">
+        <div className="col-lg-5  col-xl-5 login-div">
           <div>
             <h1 className="text-dark">Login</h1>
           </div>
           <div>
-            <form action="" method="post" onSubmit={handleSubmit}>
+            <form action="" method="post" onSubmit={handleSubmit} className="form-d-in-login">
               <div>
                 <label for="username" className="text-dark">Email Id:</label>
                 <input

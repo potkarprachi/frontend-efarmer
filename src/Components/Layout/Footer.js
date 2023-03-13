@@ -2,7 +2,7 @@ import "./Footer.css";
 export function Footer() {
   return (
     <>
-      <footer className="text-bg-dark container-fluid padding-of-footer text-center text-lg-start mt-1 afooter bottom-0">
+      <footer className="text-bg-dark container-fluid padding-of-footer text-center text-lg-start mt-1 afooter bottom-0 fixed-lg-bottom">
         {/* Grid container */}
         <div className=" text-center py-4">
           {/*Grid row*/}
