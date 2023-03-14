@@ -45,6 +45,7 @@ export function getApprovedList() {
   return axios.get(`${BASE_URL}/menuPage`);
 }
 
+
 export function getAllDistrict() {
   return axios.get(`${BASE_URL}/getDistrict`);
 }
@@ -60,8 +61,24 @@ export function getTransDetailsFarmer(id) {
 export function buyCrop1(item) {
   return axios.post(`${BASE_URL}/addTransaction`, item);
 }
-export function getAllTransactions() {
+export function getAllTransactions()
+{
   return axios.get(`${BASE_URL}/getAllTransactions1`);
+}
+
+export function getAccDetailsbyEmail(email)
+{
+  return axios.get(`${BASE_URL}/getAccDetailbyemail/${email}`);
+}
+
+export function checkEmail(email) {
+  console.log(email);
+  return axios.post(`${BASE_URL}/checkEmail`, email);
+}
+// updating user password
+export function userPasswordUpdate(formData) {
+  console.log(formData);
+  return axios.post(`${BASE_URL}/forgotpassword`, formData);
 }
 
 export function forgotPassword(email, password) {

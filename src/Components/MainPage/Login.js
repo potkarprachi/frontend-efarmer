@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { userLogin } from "../../Service/ListApiService";
+import { getAccDetails, getAccDetailsbyEmail, userLogin } from "../../Service/ListApiService";
 import "./Login.css";
 import image123 from "../MainPage/farsell.avif";
 function Login() {
@@ -20,11 +20,14 @@ function Login() {
       console.log("no validate");
       return;
     } else {
-      var response = await userLogin(loginData);
-      if (
-        response.data.email === loginData.email &&
-        response.data.password === loginData.password
-      ) {
+
+      var response1 = await userLogin(loginData);
+      console.log(response1);
+      if (response1.data) {
+        var response1=sessionStorage.setItem("jwt", response1.data);
+        console.log(loginData.email);
+        var response= await getAccDetailsbyEmail(loginData.email)
+        console.log(response.data);
         sessionStorage.setItem("user", JSON.stringify(response.data.email));
         sessionStorage.setItem("userId", JSON.stringify(response.data.id));
         sessionStorage.setItem("role", JSON.stringify(response.data.role));
@@ -39,7 +42,7 @@ function Login() {
         }
       } else {
         alert("Invalid Credentials");
-        navigate("/farmerlogin");
+        navigate("/login");
       }
     }
   };
