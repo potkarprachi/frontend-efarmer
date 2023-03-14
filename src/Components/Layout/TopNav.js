@@ -26,8 +26,8 @@ function TopNav() {
     <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">E-Farming</Navbar.Brand>
-        <Navbar.Brand href="#home"><img src={Logo} style={{width:"30px",height:"30px"}}/></Navbar.Brand>
+        <Navbar.Brand href="#home"></Navbar.Brand>
+        <Navbar.Brand href="#home"><img src={Logo} style={{width:"70px",height:"70px"}}/></Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">

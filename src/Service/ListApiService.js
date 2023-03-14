@@ -45,6 +45,7 @@ export function getApprovedList() {
   return axios.get(`${BASE_URL}/menuPage`);
 }
 
+
 export function getAllDistrict() {
   return axios.get(`${BASE_URL}/getDistrict`);
 }
@@ -62,5 +63,10 @@ export function buyCrop1(item) {
 }
 export function getAllTransactions()
 {
-  return axios.get(`${BASE_URL}/getAllTransactions1`)
+  return axios.get(`${BASE_URL}/getAllTransactions1`);
+}
+
+export function getAccDetailsbyEmail(email)
+{
+  return axios.get(`${BASE_URL}/getAccDetailbyemail/${email}`);
 }
