@@ -25,6 +25,7 @@ import { FarmerTransaction } from "./Components/Farmer/FarmerTransaction";
 import Login from "./Components/MainPage/Login";
 import AdminContactUs from "./Components/Admin/AdminContactUs";
 import { Footer } from "./Components/Layout/Footer";
+import { ConfirmOrder } from "./Components/Customer/ConfirmOrder";
 
 
 
@@ -57,6 +58,7 @@ function App() {
             <Route path="/farmerTrans" element={<FarmerTransaction></FarmerTransaction>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/adminContactUs" element={<AdminContactUs/>}></Route>
+            <Route path="/confirmorder" element={<ConfirmOrder/>}></Route>
             </Routes>
             <Footer></Footer>
         </BrowserRouter>

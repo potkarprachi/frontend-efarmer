@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { buyCrop1, getApprovedList } from "../../Service/ListApiService";
 import "../Customer/MenuPage.css"
 import CustomerSideNav from "../Layout/CustomerSideNav";
+import { ConfirmOrder } from "./ConfirmOrder";
 
 export function MenuPage() {
   let [listOfCrops, setListOfCrops] = useState([]);
   const customerId=sessionStorage.getItem("userId");
+  const navigate=useNavigate();
   let [trans,setTrans]=useState({
     cropID : '',
     customerNo: {
@@ -29,14 +32,16 @@ export function MenuPage() {
   }
   async function buyCrop(customerId,item)
   {
+    sessionStorage.setItem("itemId",item.cropID);
     trans.cropID=item.cropID;
     trans.customerNo.id=parseInt(customerId,10);
     trans.farmerNo.id=item.farmerNo.id;
     trans.price=item.price;
     trans.weight=item.weight;
     trans.cropStatus.cropID=item.cropID
-    var response1=await buyCrop1(trans);
-    getList();
+    //var response1=await buyCrop1(trans);
+    sessionStorage.setItem("cropid",item.cropID);
+    navigate("/confirmorder");
   }
   useEffect(() => {
     getList();
@@ -44,13 +49,13 @@ export function MenuPage() {
   return (
     <>
     <div className="row bg-for-menupage">
-    <div className="col-lg-2 sidebar">
+    <div className="col-lg-2 col-md-2 col-sm-2 sidebar">
                <CustomerSideNav></CustomerSideNav>
             </div>
-    <div className="col-lg-10 menu1">
+    <div className="col-lg-10 col-md-10 col-sm-2 menu1">
     <div>
         <div>
-            <div class="row">
+            <div class="row row-for-card">
             {listOfCrops.map((item) => {
               return (
                 <div className="col-3 my-3 mx-5 menupage">

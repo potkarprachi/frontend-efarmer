@@ -64,3 +64,7 @@ export function getAllTransactions()
 {
   return axios.get(`${BASE_URL}/getAllTransactions1`)
 }
+export function getCropInfo(id)
+{
+  return axios.get(`${BASE_URL}/getCropDetails/${id}`)
+}

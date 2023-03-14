@@ -1,0 +1,12 @@
+.padding-for-table
+{
+    /* padding-left: 50px; */
+}
+
+@media screen and (min-width: 960px)
+{
+    .row-for-confirm-order
+    {
+        width: 1519.2px;
+    }
+}

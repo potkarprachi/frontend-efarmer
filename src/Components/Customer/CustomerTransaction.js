@@ -32,7 +32,7 @@ export function CustomerTransaction() {
             <thead>
               <tr>
                 <th scope="col">Transaction ID</th>
-                <th scope="col">Customer</th>
+                <th scope="col">Farmer</th>
                 <th scope="col">Crop</th>
                 <th scope="col">Weight</th>
                 <th scope="col">Amount</th>
