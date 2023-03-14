@@ -70,3 +70,13 @@ export function getAccDetailsbyEmail(email)
 {
   return axios.get(`${BASE_URL}/getAccDetailbyemail/${email}`);
 }
+
+export function checkEmail(email) {
+  console.log(email);
+  return axios.post(`${BASE_URL}/checkEmail`, email);
+}
+// updating user password
+export function userPasswordUpdate(formData) {
+  console.log(formData);
+  return axios.post(`${BASE_URL}/forgotpassword`, formData);
+}

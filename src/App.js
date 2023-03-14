@@ -25,6 +25,8 @@ import { FarmerTransaction } from "./Components/Farmer/FarmerTransaction";
 import Login from "./Components/MainPage/Login";
 import AdminContactUs from "./Components/Admin/AdminContactUs";
 import { Footer } from "./Components/Layout/Footer";
+import ForgotPassword from "./Components/Layout/ForgotPassword";
+import { EditPassword } from "./Components/Layout/EditPassword";
 
 
 
@@ -57,6 +59,8 @@ function App() {
             <Route path="/farmerTrans" element={<FarmerTransaction></FarmerTransaction>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
             <Route path="/adminContactUs" element={<AdminContactUs/>}></Route>
+            <Route path="/forgotpassword" element={<ForgotPassword></ForgotPassword>}></Route>
+            <Route path="/editpassword" element={<EditPassword></EditPassword>}></Route>
             </Routes>
             <Footer></Footer>
         </BrowserRouter>
