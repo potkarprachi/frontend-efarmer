@@ -80,3 +80,7 @@ export function userPasswordUpdate(formData) {
   console.log(formData);
   return axios.post(`${BASE_URL}/forgotpassword`, formData);
 }
+
+export function forgotPassword(email, password) {
+  return axios.post(`${BASE_URL}/forgotPassword/${email}/${password}`);
+}
